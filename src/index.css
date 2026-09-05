@@ -1,0 +1,34 @@
+*{
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  
+}
+
+h1{
+  font-family: "Urbanist", sans-serif;
+  font-size: clamp(2.5rem, 5vw, 6rem);
+  width: 80%;
+  margin-bottom: 1.5rem;
+  font-weight: 800;
+}
+
+h2{
+  font-family: "epilogue", sans-serif;
+  font-size: clamp(1.6rem, 1vw, 2.5rem);
+  margin-bottom: .5rem;
+  width: 80%;
+  font-weight: 500;
+}
+
+h3{
+  font-family: "epilogue", sans-serif;
+  font-size: clamp(1rem, 1.2vw, 2rem);
+  margin-bottom: 1.5rem;
+  width: 70%;
+  font-weight: 500;
+}
+
+p{
+  font-size: 16px;
+}
