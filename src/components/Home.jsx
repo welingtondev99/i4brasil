@@ -5,8 +5,7 @@ import './home.css'
 
 const Home = () => {
    return (
-    <div className='contentHome'>
-      <Header/>
+    <div className=' container'> 
       <h1>
         Instituto de Infraestrutura, Inteligência e Inovação —
         <span className='spani4'> i4 Brasil</span>

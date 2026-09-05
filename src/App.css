@@ -3,3 +3,20 @@
   --roxo-claro: #8761C9;
   --fundo-cinza: #F3F5F7;
 }
+
+#center{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)), url(/src/images/hero-city.jpg);
+    height: 100dvh;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    flex-direction: column;
+}
+
+.container{
+  width: 80%;
+  margin: 0 auto;
+  max-width: 1900px;
+  color: white;
+}

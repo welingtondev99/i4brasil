@@ -3,22 +3,25 @@
     align-items: center;
     justify-items: center;
     grid-auto-flow: column;
-    grid-template-columns: 0.3fr 1fr 0.3fr;
-    gap: 40px;
+    grid-template-columns: 0.2fr 1fr 0.2fr;
+    gap: 6rem;
     font-family: "Inter", sans-serif;
     font-weight: 800;
-    font-size: 0.8rem;
-    margin-bottom: 7rem;
+    font-size: 1rem;
+    margin-bottom: 12rem;
     height: 50px;
+    width: 80%;
+    padding: 3rem 0rem;
 }
 
-.navegation img, a{
+.navegation img, 
+.navegation a{
     min-width: 150px;
     padding: 0rem 1rem;
     text-decoration: none;
     /* color: #000000; */
     max-height: 70px;
-    height: 40px;
+    height: 55px;
 }
 
 .navegation-center{
@@ -26,7 +29,8 @@
     border-radius: 45px;
     display: flex;
     padding: 5px;
-    width: 100%;
+    width: 80%;
+    height: 66px;
     align-items: center;
     justify-content: space-between;
     background-color: rgba(88, 48, 157, 0.17);
@@ -37,13 +41,18 @@
 .navegation-center a{
     /* background-color: aquamarine; */
     border-radius: 45px;
-    height: 2rem;
+    height: 3rem;
     max-width: 18rem;
     min-width: 10rem;
     display: flex;
     justify-content: center;
     align-items: center;
     color: #fff;
+}
+
+.navegation-center a:hover{
+    background-color: #fff;
+    color: var(--roxo-primario);
 }
 
 .desingButContLogo{
@@ -60,11 +69,14 @@
     display: none;
 }
 
+@media(max-width:1600px){
+    .navegation{
+        margin-bottom: 7rem;
+    }
+}
+
 
 @media (max-width: 1140px){
-    .desingToogleButton{
-        color: #ff5733 !important;
-    }
     .toogleButton{
         display: flex;
     }
@@ -73,6 +85,9 @@
     }
     .navegation img, a{
         min-width: 0;
+    }
+    .navegation{
+        grid-template-columns: 1fr 1fr 1fr;
     }
 
 }
