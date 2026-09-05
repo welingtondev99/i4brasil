@@ -14,3 +14,8 @@
 .spani4{
     color: #8761C9;
 }
+
+.button{
+    display: flex;
+    gap: 15px;
+}

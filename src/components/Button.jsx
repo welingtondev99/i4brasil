@@ -1,8 +1,8 @@
 import './button.css'
 
-const Button = ({e}) => {
+const Button = ({text}) => {
   return (
-    <button className="buttonEl">{e}</button>
+    <button className="buttonEl">{text}</button>
   )
 }
 

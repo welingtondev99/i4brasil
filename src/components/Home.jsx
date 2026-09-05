@@ -1,8 +1,6 @@
-import React from 'react'
 import Header from './Header'
 import Button from './Button'
 import './home.css'
-import "./button.css"
 
 
 const Home = () => {
@@ -20,8 +18,8 @@ const Home = () => {
         Estruturamos PPPs, concessões e projetos de infraestrutura integrando as dimensões técnica, jurídica, econômico-financeira e institucional.
       </h3>
       <div className='button'>
-        <Button e={"FALAR COM A I4 ->"}/>
-        <Button e={"VER ÁREAS DE ATUAÇÃO"}/>
+        <Button text={"FALAR COM A I4 ->"}/>
+        <Button text={"VER ÁREAS DE ATUAÇÃO"}/>
       </div>
     </div>
   )

@@ -1,23 +1,24 @@
 .navegation{
     display: grid;
-    justify-content: start;
     align-items: center;
     justify-items: center;
-    align-content: start;
     grid-auto-flow: column;
-    grid-template-columns: 200px 1fr 200px;
-    gap: 30px;
+    grid-template-columns: 0.3fr 1fr 0.3fr;
+    gap: 40px;
     font-family: "Inter", sans-serif;
     font-weight: 800;
     font-size: 0.8rem;
     margin-bottom: 7rem;
-    flex: 1;
+    height: 50px;
 }
 
 .navegation img, a{
+    min-width: 150px;
     padding: 0rem 1rem;
     text-decoration: none;
-    color: #fff;
+    /* color: #000000; */
+    max-height: 70px;
+    height: 40px;
 }
 
 .navegation-center{
@@ -25,37 +26,53 @@
     border-radius: 45px;
     display: flex;
     padding: 5px;
-    width: 80%;
+    width: 100%;
     align-items: center;
     justify-content: space-between;
     background-color: rgba(88, 48, 157, 0.17);
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    gap: 5px;
 }
 
 .navegation-center a{
     /* background-color: aquamarine; */
-
-    /* background-color: white; */
     border-radius: 45px;
-    height: 40px;
-    width: 238px;
+    height: 2rem;
+    max-width: 18rem;
+    min-width: 10rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #fff;
 }
-
-/* .navegation-center a{
-    display: flex;
-    flex-direction: row;
-} */
 
 .desingButContLogo{
     color: #58309D;
     background-color: #F3F5F7;
     border-radius: 45px;
-    width: 100%;
-    height: 60%;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+
+.toogleButton{
+    display: none;
+}
+
+
+@media (max-width: 1140px){
+    .desingToogleButton{
+        color: #ff5733 !important;
+    }
+    .toogleButton{
+        display: flex;
+    }
+    .navegation-center{
+        display: none;
+    }
+    .navegation img, a{
+        min-width: 0;
+    }
+
 }
