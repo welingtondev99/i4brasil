@@ -7,3 +7,10 @@
     height: 5rem;
     padding-left: 2rem;
 }
+
+.titleh4{
+    font-family: 'urbanist',sans-serif;
+    font-size: 1.3rem;
+    color: #000;
+    font-weight: 700;
+}
