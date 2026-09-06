@@ -1,7 +1,8 @@
 :root {
   --roxo-primario: #58309D;
   --roxo-claro: #8761C9;
-  --fundo-cinza: #F3F5F7;
+  --background: #F3F5F7;
+  --paragraph: #4A4A55;
 }
 
 #center{
@@ -16,7 +17,7 @@
 
 .container{
   width: 80%;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   max-width: 1900px;
   color: white;
 }

@@ -1,10 +1,11 @@
-import Header from './Header'
 import Button from './Button'
 import './home.css'
+import '../App.css'
 
 
 const Home = () => {
    return (
+    <>
     <div className=' container'> 
       <h1>
         Instituto de Infraestrutura, Inteligência e Inovação —
@@ -21,6 +22,7 @@ const Home = () => {
         <Button text={"VER ÁREAS DE ATUAÇÃO"}/>
       </div>
     </div>
+    </>
   )
 
 }

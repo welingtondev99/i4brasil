@@ -1,0 +1,9 @@
+.title{
+    font-family: 'urbanist', sans-serif;
+    font-size: 2.3rem;
+    font-weight: 800;
+    color: var(--roxo-primario);
+    border-left: 3px solid var(--roxo-primario);
+    height: 5rem;
+    padding-left: 2rem;
+}

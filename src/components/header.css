@@ -10,7 +10,7 @@
     font-size: 1rem;
     margin-bottom: 12rem;
     height: 50px;
-    width: 80%;
+
     padding: 3rem 0rem;
 }
 
@@ -29,7 +29,7 @@
     border-radius: 45px;
     display: flex;
     padding: 5px;
-    width: 80%;
+    /* width: 80%; */
     height: 66px;
     align-items: center;
     justify-content: space-between;
@@ -43,7 +43,7 @@
     border-radius: 45px;
     height: 3rem;
     max-width: 18rem;
-    min-width: 10rem;
+    width: 14rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -72,6 +72,13 @@
 @media(max-width:1600px){
     .navegation{
         margin-bottom: 7rem;
+        
+    }
+}
+
+@media(max-width: 1450px){
+    .navegation-center a{
+        width: 0;
     }
 }
 
@@ -87,6 +94,7 @@
         min-width: 0;
     }
     .navegation{
+        
         grid-template-columns: 1fr 1fr 1fr;
     }
 
