@@ -8,17 +8,37 @@
 
 #center{
     background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)), url(/src/images/hero-city.jpg);
-    height: 100dvh;
+    height: 100vh;
     background-repeat: no-repeat;
     display: flex;
     align-items: center;
     background-size: cover;
     flex-direction: column;
+  }
+  
+  .desingCenter{
+    max-height: 100vh;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    flex-direction: column;
+    
 }
 
 .container{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 7rem;
   width: 80%;
   /* margin: 0 auto; */
-  max-width: 1900px;
+  max-width: 1500px;
   color: white;
+}
+
+@media (max-width: 1600px){
+  .container{
+     margin-bottom: 2rem;
+  }
 }

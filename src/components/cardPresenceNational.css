@@ -2,21 +2,20 @@
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-}
 
-.imageMap{
-    max-width: 628px;
-    max-height: 655px;
 }
 
 .cardNational{
+    overflow: hidden;
     display: flex;
     flex-direction: row;
     width: 20rem;
+    height: 5.4rem;
     gap: 40px;
     justify-content: center;
     align-items: stretch;
     flex-wrap: nowrap;
+    position: relative;
 }
 
 .circle{
@@ -33,4 +32,34 @@
     position: relative;
     top: 10px;
     left: 10px;
+}
+
+@media(max-width: 1650px){
+    .alingCardNational{
+        width: 100%;
+    }
+
+    .cardNational{
+        width: 15rem;
+        height: 4.4rem;
+    }
+
+    .cardNational h4{
+        font-size: 1rem;
+    }
+
+    .cardNational p{
+        font-size: 0.9rem;
+    }
+
+    .circle{
+        width: 64px;
+        height: 64px;
+    }
+
+    .cardNational img{
+        width: 45px;
+        top: 7px;
+        left: 7px;
+}
 }

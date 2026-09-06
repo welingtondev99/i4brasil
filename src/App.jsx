@@ -12,6 +12,8 @@ function App() {
       <section id="center">
         <Header/>
         <Home/>
+      </section>
+      <section className='desingCenter'>
         <NationalPresence/>
       </section>
 

@@ -8,8 +8,8 @@
     font-family: "Inter", sans-serif;
     font-weight: 800;
     font-size: 1rem;
-    margin-bottom: 12rem;
-    height: 50px;
+    margin-bottom: 10rem;
+    /* height: 50px; */
 
     padding: 3rem 0rem;
 }
@@ -62,6 +62,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
 }
 
 
@@ -71,7 +72,7 @@
 
 @media(max-width:1600px){
     .navegation{
-        margin-bottom: 7rem;
+        margin-bottom: 4rem;
         
     }
 }

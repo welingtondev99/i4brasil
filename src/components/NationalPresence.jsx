@@ -19,8 +19,8 @@ const NationalPresence = () => {
         </div>
 
         <div className='org'>
+            <TitleSection title={"Nossa presença nacional"}/>
             <div>
-                <TitleSection title={"Nossa presença nacional"}/>
                 <Paragraph texts={"Projetos que transformam cidades e impulsionam o futuro"}/>
                 <Paragraph texts={"Atuamos em todo o território nacional, com projetos em setores estratégicos como cidades inteligentes, segurança pública, saneamento e eficiência energética — sempre com soluções integradas de tecnologia e gestão adaptadas ao desafio local."}/>
                 <Paragraph texts={"Alguns dos estados em que já atuamos"}/>
@@ -33,7 +33,7 @@ const NationalPresence = () => {
                     <CardPresenceNational image={imgCard} title={"Roraima (RR)"} text={"Eficiência energêtica e PPPs municipais"}/>
                 </div>
             </div>
-            <div >
+            <div className='desingDivImageMap'>
                 <img className='imageMap' src={mapa} alt="" />
             </div>
         </div>
