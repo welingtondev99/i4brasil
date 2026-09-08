@@ -4,9 +4,14 @@ import TitleSection from './TitleSection'
 import Paragraph from './Paragraph'
 import CardPresenceNational from './CardPresenceNational'
 import imgCard from "../assets/eficiencia-energetica.svg"
+import marcas from '../data/partners'
 import '../App.css'
 import './cardPresenceNational.css'
+import './partners.css'
 
+
+
+// const [logo, setLogo] = useState('')
 
 const NationalPresence = () => {
   return (
@@ -14,7 +19,11 @@ const NationalPresence = () => {
         <div>
             <TitleSection title={"Quem confia na i4 Brasil"}/>
             <div>
-
+                <div className='designPartnes'>
+                   {marcas.map((imagem, index)=>(
+                        <img className='default' key={index} src={imagem} width={'150px'} alt="logo do municipio" />
+                   ))}
+                </div>
             </div>
         </div>
 

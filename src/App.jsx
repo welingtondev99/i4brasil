@@ -9,8 +9,8 @@ function App() {
 
   return (
     <>
+      <Header/>
       <section id="center">
-        <Header/>
         <Home/>
       </section>
       <section className='desingCenter'>

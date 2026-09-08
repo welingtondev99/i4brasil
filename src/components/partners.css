@@ -1,0 +1,9 @@
+.designPartnes{
+    display: flex;
+}
+
+.default{
+    object-fit: contain;
+    object-position: center;
+    margin: 10px;
+}

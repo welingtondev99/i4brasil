@@ -6,7 +6,7 @@ import MenuIcon from "./MenuIcon"
 
 const Header = () => {
   return (
-    <header className='navegation container'>
+    <header className='navegation'>
         <img className='desingButContLogo' src={Logo} alt="Logo i4 Brasil" />
         <nav className='navegation-center'>
             <a href="#">INÍCIO</a>

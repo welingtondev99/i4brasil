@@ -4,6 +4,7 @@
   --background: #F3F5F7;
   --paragraph: #4A4A55;
   --cinza-claro: #D9D9D9;
+  --header-height: 12rem;
 }
 
 #center{
@@ -27,6 +28,7 @@
 }
 
 .container{
+  padding-top: var(--header-height);
   display: grid;
   justify-content: center;
   align-items: center;
