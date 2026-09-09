@@ -18,8 +18,8 @@ const Home = () => {
         Estruturamos PPPs, concessões e projetos de infraestrutura integrando as dimensões técnica, jurídica, econômico-financeira e institucional.
       </h3>
       <div className='button'>
-        <Button text={"FALAR COM A I4 ->"}/>
-        <Button text={"VER ÁREAS DE ATUAÇÃO"}/>
+        <Button variant={'primary'} text={"FALAR COM A I4 ->"}/>
+        <Button variant={'primary'} text={"VER ÁREAS DE ATUAÇÃO"}/>
       </div>
     </div>
     </>

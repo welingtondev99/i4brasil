@@ -1,8 +1,13 @@
-.styleParagraph{
+p{
     font-family: 'epilogue', sans-serif;
     font-weight: 400;
     font-size: 1rem;
     color: var(--paragraph);
     margin-bottom: 1rem;
     width: 80%;
+}
+
+.paragrafhTerms{
+    width: 100%;
+    margin: 1rem 0 3rem 0;
 }

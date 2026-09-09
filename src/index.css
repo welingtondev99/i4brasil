@@ -34,6 +34,26 @@ h3{
   font-weight: 500;
 }
 
+h4{
+  font-family: 'inter', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 10px 0px;
+  color: var(--sub-titulos);
+}
+
 p{
-  font-size: 16px;
+    font-family: 'epilogue', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: var(--paragraph);
+    margin-bottom: 1.5rem;
+    width: 80%;
+}
+
+hr{
+  margin: 2rem 0rem 3rem 0rem;
+  border: none;
+  height: 1px;
+  background-color: var(--line);
 }

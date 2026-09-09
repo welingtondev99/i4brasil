@@ -1,8 +1,17 @@
 import './button.css'
 
-const Button = ({text}) => {
+const Button = ({variant ,text}) => {
+  let className = 'buttonEl'
+
+  if (variant === 'primary'){
+    className = 'buttonEl' 
+  }
+  else if (variant === 'secundary'){
+    className= 'styleButtonPages'
+  }
+
   return (
-    <button className="buttonEl">{text}</button>
+     <button className={className}>{text}</button>
   )
 }
 

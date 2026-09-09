@@ -4,6 +4,7 @@ import NationalPresence from './components/NationalPresence'
 import './App.css'
 import './components/home.css'
 
+
 function App() {
   
 
@@ -16,7 +17,7 @@ function App() {
       <section className='desingCenter'>
         <NationalPresence/>
       </section>
-
+      
       <div className="ticks"></div>
       <section id="spacer"></section>
     </>
