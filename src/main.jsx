@@ -2,8 +2,9 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import TermsOfUse from './pages/TermsOfUse.jsx';
-import './index.css'
 import App from './App.jsx'
+import PrivacyPolicy from './pages/PrivacyPolicy.jsx';
+import './index.css'
 
 const router = createBrowserRouter([
   {
@@ -11,9 +12,13 @@ const router = createBrowserRouter([
     element: <App/>, // Sua página principal (Home)
   },
   {
-    path: "/TermsOfUse",
+    path: "/termos-de-uso",
     element: <TermsOfUse/>, // A página que você quer visualizar
   },
+  {
+    path: "/Politica-de-privacidade",
+    element: <PrivacyPolicy/>
+  }
 ]);
 
 createRoot(document.getElementById('root')).render(

@@ -3,6 +3,7 @@ import Home from './components/Home'
 import NationalPresence from './components/NationalPresence'
 import './App.css'
 import './components/home.css'
+import Footer from './components/Footer'
 
 
 function App() {
@@ -17,7 +18,6 @@ function App() {
       <section className='desingCenter'>
         <NationalPresence/>
       </section>
-      
       <div className="ticks"></div>
       <section id="spacer"></section>
     </>

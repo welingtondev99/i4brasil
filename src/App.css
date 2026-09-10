@@ -3,7 +3,7 @@
   --roxo-claro: #8761C9;
   --background: #F3F5F7;
   --paragraph: #4A4A55;
-  --sub-titulos: #2c2c31;
+  --sub-titulos: #58309d;
   --cinza-claro: #D9D9D9;
   --line: #D0D0D0;
   --branco: #fff;
@@ -50,6 +50,15 @@
 .containerPagesText{
   width: 80%;
   margin: 0 auto;
+}
+
+.StylePrivacyPolicy p{
+    width: 100%;
+}
+
+.lgpd{
+    color:#0A6EB5;
+    font-weight: 800;
 }
 
 @media (max-width: 1600px){

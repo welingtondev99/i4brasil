@@ -1,7 +1,17 @@
 footer{
     background-color: var(--roxo-primario);
     display: grid;
+    bottom: 0px;
+    margin-top: 10rem;
+}
 
+footer hr{
+    margin: 2rem 0rem 3rem 0rem;
+    border: none;
+    height: 1px;
+    width: 80%;
+    margin: 2rem auto;
+    background-color: var(--line);
 }
 
 .styleFooter, .footerFinal span{
