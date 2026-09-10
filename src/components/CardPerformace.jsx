@@ -1,14 +1,21 @@
 import "./cardPerformace.css"
+import Bdcard from "../data/cardPerformace"
 
-const CardPerformace = ({img ,name, index,text}) => {
+const CardPerformace = () => {
+
   return (
-    <div className="card">
-      <img src={img} alt="" />
-      <h4>{name}</h4>
-      <span>{index}</span>
-      <p>{text}</p>
-    </div>
+    Bdcard.map((i)=>{
+       return (
+        <div key={i.id} className="card">
+          <img src={i.img} alt="" />
+          <h4>{i.title}</h4>
+          <span>{i.id}</span>
+          <p>{i.text}</p>
+        </div>
+       )
+    })
   )
+  
 }
 
 export default CardPerformace

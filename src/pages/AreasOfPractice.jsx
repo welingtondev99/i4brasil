@@ -2,6 +2,7 @@ import CardPerformace from "../components/CardPerformace"
 import DefaultTop from "../components/DefaultTop"
 import Footer from "../components/Footer"
 import MainCardPerformace from "../components/MainCardPerformace"
+import Bdcard from "../data/cardPerformace"
 import aeroporto from "../images/aeroporto.svg"
 
 import './areasOfPractice.css'
@@ -31,7 +32,7 @@ const AreasOfPractice = () => {
                     </div>
                 </div>
                 <div>
-                    <CardPerformace img={aeroporto} name={'aeroporto'} index={'01'} text={'Concessão, expansão e modernização aeroportuária, da estruturação financeira à gestão regulatória.'}/>
+                    <CardPerformace/>
                 </div>
             </div>
         </section>
