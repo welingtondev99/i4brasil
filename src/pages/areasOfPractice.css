@@ -1,0 +1,49 @@
+.organizeCard{
+    display: flex;
+}
+
+.caseMasterCard{
+    width: 510px;
+    min-height: 600px;
+    background-color: #fff;
+    padding: 40px;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.caseMasterCard h3{
+    padding: 0.5rem 0;
+    font-size: 25px;
+    font-weight: 700;
+    font-family: 'epilogue';
+}
+
+.caseMasterCard a {
+    text-decoration: none;
+    color: #000;
+    font-family: 'inter',sans-serif;
+}
+
+.nameCard span{
+    font-family: 'inter', sans-serif;
+    font-size: 1.2rem;
+    color: var(--roxo-primario);
+}
+
+.nameCard{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.caseMasterCard img{
+    width: 100%;
+    height: 35%;
+    object-fit: cover;
+}
+
+@media (max-width: 1445px){
+    .organizeCard{
+        flex-wrap: wrap;
+    }
+}

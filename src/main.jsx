@@ -5,6 +5,7 @@ import TermsOfUse from './pages/TermsOfUse.jsx';
 import App from './App.jsx'
 import PrivacyPolicy from './pages/PrivacyPolicy.jsx';
 import './index.css'
+import AreasOfPractice from './pages/AreasOfPractice.jsx';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: "/Politica-de-privacidade",
     element: <PrivacyPolicy/>
+  },
+  {
+    path: "/areas-de-atuacao",
+    element: <AreasOfPractice/>
   }
 ]);
 

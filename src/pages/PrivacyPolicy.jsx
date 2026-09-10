@@ -9,7 +9,7 @@ const PrivacyPolicy = () => {
     <>
         <section className="containerPages">
             <DefaultTop/>
-            <div className='StylePrivacyPolicy containerPagesText'>
+            <div className='containerPagesText'>
                 <h3 className='lgpd'>LGPD</h3>
                 <h2 className='title'>Política de Privacidade.</h2>
                 <p >Esta política descreve como o i4 Brasil trata os dados pessoais enviados por meio do formulário de contato deste site, em conformidade com a Lei nº 13.709/2018 (LGPD).</p>
