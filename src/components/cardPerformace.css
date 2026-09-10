@@ -1,13 +1,32 @@
 .card{
-    width: 510px;
+    width: 33%;
     background-color: #fff;
     padding: 17px;
-    margin: 2rem 0;
+
     border-right: 1px solid black;
     border-bottom: 1px solid black;
 }
 
 .card img{
-    max-width: 474px;
+    width: 100%;
     border-radius: 10px;
+}
+
+.textCardPerformace{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.textCardPerformace span{
+    color: var(--roxo-primario);
+    font-weight: 500;
+    font-family: 'epilogue', sans-serif;
+}
+
+@media(max-width: 1000px){
+    .card{
+        width: 350px;
+        flex-wrap: wrap;
+    }
 }

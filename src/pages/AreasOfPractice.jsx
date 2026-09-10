@@ -2,8 +2,6 @@ import CardPerformace from "../components/CardPerformace"
 import DefaultTop from "../components/DefaultTop"
 import Footer from "../components/Footer"
 import MainCardPerformace from "../components/MainCardPerformace"
-import Bdcard from "../data/cardPerformace"
-import aeroporto from "../images/aeroporto.svg"
 
 import './areasOfPractice.css'
 
@@ -31,8 +29,13 @@ const AreasOfPractice = () => {
                         <MainCardPerformace/>
                     </div>
                 </div>
+                    <hr />
                 <div>
-                    <CardPerformace/>
+                    <h4>ÁREAS DE ATUAÇÃO</h4>
+                    <p>Setores em que oferecemos soluções especializadas para os desafios mais complexos da infraestrutura, das concessões e do desenvolvimento urbano no Brasil.</p>
+                    <div className="alingCard">
+                        <CardPerformace/>
+                    </div>
                 </div>
             </div>
         </section>

@@ -8,8 +8,10 @@ const CardPerformace = () => {
        return (
         <div key={i.id} className="card">
           <img src={i.img} alt="" />
-          <h4>{i.title}</h4>
-          <span>{i.id}</span>
+          <div className="textCardPerformace">
+            <h4>{i.title}</h4>
+            <span>{i.id}</span>
+          </div>
           <p>{i.text}</p>
         </div>
        )
