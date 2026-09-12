@@ -29,3 +29,30 @@
     object-position: top;
     margin-bottom: 1rem;
 }
+
+.TeamOverviewCard{
+    width: 20%;
+    background-color: #fff;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 1px solid var(--cinza-claro);
+}
+.TeamOverviewCard img{
+    width: 100%;
+    border-radius: 50%;
+}
+
+.TeamOverviewCard span{
+    font-family: 'inter';
+    font-size: .9rem;
+    width: auto;
+    margin-bottom: 0;
+    margin-top: 1rem;
+}
+
+.cardTeam{
+    display: flex;
+    flex-wrap: wrap;
+}

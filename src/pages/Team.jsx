@@ -5,6 +5,7 @@ import luis from '../images/luis.avif'
 import mirelle from '../images/Mirelle.avif'
 import felipe from '../images/felipe.avif'
 import gabriel from '../images/gabriel.avif'
+import CardTeam from "../components/CardTeam"
 
 const Team = () => {
   return (
@@ -43,6 +44,15 @@ const Team = () => {
                             name={'Gabriel Gualberto | '}
                             text={'Conduz a visão institucional da i4 Brasil, mediando relações entre o setor público, privado e organismos internacionais para a implementação de agendas de inovação e desenvolvimento urbano.'}
                         />
+                    </div>
+                    <div>
+                        <hr />
+                        <h4>COLABORADORES</h4>
+                        <p>Além de nossa estrutura central, articulamos uma rede estratégica de consultores e técnicos especializados distribuída por todo o território nacional. Essa capilaridade nos permite atuar com a agilidade, a precisão e o conhecimento local que a gestão pública contemporânea exige.</p>
+                        <hr />
+                        <div className="cardTeam">
+                            <CardTeam/>
+                        </div>
                     </div>
                 </div>
             </div>
