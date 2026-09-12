@@ -3,7 +3,6 @@ import DefaultTop from "../components/DefaultTop"
 import Footer from "../components/Footer"
 import MainCardPerformace from "../components/MainCardPerformace"
 
-import './areasOfPractice.css'
 
 const AreasOfPractice = () => {
   return (

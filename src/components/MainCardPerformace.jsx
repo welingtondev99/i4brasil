@@ -1,4 +1,5 @@
 import img1 from "../images/Faixa-de-pedestres.avif"
+import './mainCardPerformace.css'
 
 const MainCardPerformace = () => {
   return (

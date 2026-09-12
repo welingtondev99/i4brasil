@@ -1,7 +1,7 @@
 import DefaultTop from '../components/DefaultTop'
 import Footer from '../components/Footer'
 import "../components/titleSection.css"
-import "./privacyPolicy.css"
+
 
 
 const PrivacyPolicy = () => {
