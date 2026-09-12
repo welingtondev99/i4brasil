@@ -53,14 +53,16 @@ footer hr{
 
 .paragraphFooter{
     color: #fff;
+    font-size: .8rem;
 }
 .limitFooter a{
+    width: fit-content;
     text-decoration: none;
     color: #fff;
     display: flex;
     padding-bottom: 10px;
     font-family: 'epilogue', sans-serif;
-    font-size: 1rem;
+    font-size: 0.8rem;
 }
 
 .limitFooter h4{
@@ -76,10 +78,10 @@ footer hr{
     flex-direction: column;
     text-align: end;
 } */
-.socialEndTerms a{
+.socialEndTerms{
     display: flex;
+    align-items: flex-end;
     flex-direction: column;
-    text-align: end;
 }
 
 .social{
@@ -95,6 +97,15 @@ footer hr{
     padding-left: 20px;
     display: flex;
     text-align: end;
+    width: 40px;
+    margin-right: 0;
+}
+
+.align img{
+    
+    display: flex;
+    text-align: end;
+    width: 20px;
 }
 
 .footerFinal{
@@ -107,12 +118,17 @@ footer hr{
 
 
 @media (max-width: 995px){
-    .styleFooter{
-        grid-auto-flow: row;
+    .limitFooter{
+        width: 80%;
     }
 
-    .socialEndTerms, .socialEndTerms a{
-        text-align: start;
+    .styleFooter{
+        grid-auto-flow: row;
+        width: 100%;
+    }
+
+    .socialEndTerms{
+        align-items: start;
     }
 
     .footerFinal{
