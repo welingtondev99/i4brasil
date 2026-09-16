@@ -7,6 +7,8 @@ import PrivacyPolicy from './pages/PrivacyPolicy.jsx';
 import './index.css'
 import AreasOfPractice from './pages/AreasOfPractice.jsx';
 import Team from './pages/Team.jsx';
+import AreasOfActivity from './pages/AreasOfActivity.jsx';
+import Insights from './pages/Insights.jsx';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +30,14 @@ const router = createBrowserRouter([
   {
     path: "/equipe",
     element: <Team/>
+  },
+  {
+    path: "/frentes",
+    element: <AreasOfActivity/>
+  },
+  {
+    path: "/insights",
+    element: <Insights/>
   },
 ]);
 

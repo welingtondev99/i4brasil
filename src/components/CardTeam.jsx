@@ -1,5 +1,6 @@
 import React from 'react'
 import team from '../data/teams'
+import './cardTeam.css'
 
 const CardTeam = () => {
   return (

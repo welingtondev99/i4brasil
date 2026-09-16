@@ -3,11 +3,13 @@
 }
 
 .cardExecutive{
+    display: flex;
+    flex-direction: column;
     width: 25%;
     background-color: #fff;
     padding: 24px;
-    border-right:1px solid black;
-    border-bottom: 1px solid black;
+    border-right:1px solid var(--line);
+    border-bottom: 1px solid var(--line);
 }
 
 .cardExecutive p{
@@ -30,29 +32,13 @@
     margin-bottom: 1rem;
 }
 
-.TeamOverviewCard{
-    width: 20%;
-    background-color: #fff;
-    padding: 50px 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-right: 1px solid var(--cinza-claro);
+.cardExecutive span{
+    font-size: 1rem;
+    margin-bottom: .8rem;
 }
-.TeamOverviewCard img{
+
+.cardExecutive h4{
     width: 100%;
-    border-radius: 50%;
+    margin-bottom: 1rem;
 }
 
-.TeamOverviewCard span{
-    font-family: 'inter';
-    font-size: .9rem;
-    width: auto;
-    margin-bottom: 0;
-    margin-top: 1rem;
-}
-
-.cardTeam{
-    display: flex;
-    flex-wrap: wrap;
-}

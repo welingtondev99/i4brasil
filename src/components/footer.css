@@ -69,6 +69,11 @@ footer hr{
     color: #fff;
 }
 
+.styleFooter span{
+    color: #fff;
+    font-size: .8rem;
+}
+
 .limitFooter li{
     list-style: none;
 }

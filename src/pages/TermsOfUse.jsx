@@ -31,6 +31,9 @@ const TermsOfUse = () => {
           <p className="paragrafhTerms">Estes Termos de Uso podem ser modificados unilateralmente a qualquer momento pelo i4 Brasil, com o objetivo de adequação a novas exigências legais, atualizações de segurança ou melhorias nas diretrizes do site. A navegação contínua pelo portal após eventuais modificações implicará na aceitação automática da nova versão vigente.</p>
           <h4>7. Foro Aplicável e Legislação</h4>
           <p className="paragrafhTerms">Estes termos são interpretados e regidos em conformidade com as leis da República Federativa do Brasil. Fica eleito o foro da sede do instituto para dirimir quaisquer dúvidas, controvérsias ou litígios decorrentes da utilização deste site institucional.</p>
+          <hr />
+          <p>Dúvidas sobre estes termos? Escreva para <a href="mailto:i4brasil@gmail.com">contato@i4brasil.org.</a></p>
+            
         </div>
       </section>
       <Footer/>

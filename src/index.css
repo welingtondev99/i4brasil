@@ -25,19 +25,19 @@ h2{
 }
 
 h3{
-  font-family: "epilogue", sans-serif;
-  font-size: clamp(1rem, 1vw, 2rem);
-  margin-bottom: 1.5rem;
-  width: 70%;
-  font-weight: 500;
-}
-
-h4{
   font-family: 'inter', sans-serif;
   font-size: 1.2rem;
   font-weight: 700;
   margin: 10px 0px;
   color: var(--sub-titulos);
+}
+
+h4{
+  font-family: "epilogue", sans-serif;
+  font-size: clamp(1rem, 1vw, 2rem);
+  margin-bottom: 1.5rem;
+  width: 70%;
+  font-weight: 500;
 }
 
 p{
@@ -56,4 +56,10 @@ hr{
 
   margin: 2rem auto;
   background-color: var(--line);
+}
+
+span{
+  font-family: 'inter', sans-serif;
+  font-size: 1.2rem;
+  color: var(--roxo-primario);
 }

@@ -1,6 +1,7 @@
 :root {
-  --roxo-primario: #58309D;
-  --roxo-claro: #8761C9;
+  --roxo-primario: rgb(88, 48, 157);
+  --roxo-claro: #8761c9;
+  --roxo-transparente: #8761c97a;
   --background: #F3F5F7;
   --paragraph: #4A4A55;
   --sub-titulos: #58309d;
@@ -8,6 +9,9 @@
   --line: #D0D0D0;
   --branco: #fff;
   --header-height: 12rem;
+  --epilogue: 'epilgue', sans-serif
+  --inter: 'inter', sans-serif
+  --epilogue: 'epilgue', sans-serif
 }
 
 #center{

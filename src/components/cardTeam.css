@@ -1,0 +1,34 @@
+.TeamOverviewCard{
+    width: 20%;
+    background-color: #fff;
+    padding: 25px 40px 10px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 1px solid var(--cinza-claro);
+}
+.TeamOverviewCard img{
+    width: 100%;
+    border-radius: 50%;
+}
+
+.TeamOverviewCard span{
+    font-family: 'inter';
+    font-size: .9rem;
+    width: auto;
+    margin-bottom: 0;
+    margin: .5rem 0;
+}
+
+.TeamOverviewCard h4{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.cardTeam{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}

@@ -4,15 +4,16 @@ import Bdcard from "../data/cardPerformace"
 const CardPerformace = () => {
 
   return (
-    Bdcard.map((i)=>{
+    Bdcard.map((item, i)=>{
        return (
-        <div key={i.id} className="card">
-          <img src={i.img} alt="" />
+        <div key={item.id} className="card">
+          <img src={item.img} alt="" />
           <div className="textCardPerformace">
-            <h4>{i.title}</h4>
-            <span>{i.id}</span>
+            <h3>{item.title}</h3>
+            <span>{i+1}</span>
           </div>
-          <p>{i.text}</p>
+          <p>{item.text}</p>
+         {console.log(Bdcard.indexOf(item))}
         </div>
        )
     })

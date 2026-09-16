@@ -17,7 +17,7 @@ const Team = () => {
                 <p>A excelência institucional da i4 Brasil é fundamentada na integração de uma equipe multidisciplinar de alto impacto. Unimos especialistas em Direito Público, Compliance, Engenharia e Gestão Governamental para oferecer soluções robustas que conciliam inovação técnica e rigorosa segurança jurídica.</p>
                 <p>Nossa atuação é guiada pela modernização da infraestrutura e pelo desenvolvimento de Cidades Inteligentes (Smart Cities), aplicando metodologias como o Legal Design para tornar a governança e a transparência institucionais acessíveis e eficientes — com expertise consolidada no Marco Regulatório das Organizações da Sociedade Civil.</p>
                 <div>
-                    <h4>DIRETORIA EXECUTIVA</h4>
+                    <h3>DIRETORIA EXECUTIVA</h3>
                     <p>Um corpo multidisciplinar de alta senioridade na vanguarda da modernização administrativa — integrando segurança jurídica, conformidade regulatória e as mais modernas metodologias globais de gestão e transformação digital.</p>
                     <div className="styleCardExecutive">
                         <CardExecutive 
@@ -47,7 +47,7 @@ const Team = () => {
                     </div>
                     <div>
                         <hr />
-                        <h4>COLABORADORES</h4>
+                        <h3>COLABORADORES</h3>
                         <p>Além de nossa estrutura central, articulamos uma rede estratégica de consultores e técnicos especializados distribuída por todo o território nacional. Essa capilaridade nos permite atuar com a agilidade, a precisão e o conhecimento local que a gestão pública contemporânea exige.</p>
                         <hr />
                         <div className="cardTeam">

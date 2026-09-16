@@ -31,7 +31,7 @@ const PrivacyPolicy = () => {
                 <h4>8. Segurança</h4>
                 <p className="paragrafhTerms">Adotamos medidas técnicas e administrativas razoáveis para proteger os dados contra acesso não autorizado, perda ou divulgação indevida.</p>
                 <hr />
-                <p>Dúvidas sobre esta política? Escreva para <a href="">contato@i4brasil.org.</a></p>
+                <p>Dúvidas sobre esta política? Escreva para <a href="mailto:i4brasil@gmail.com">contato@i4brasil.org.</a></p>
             </div>
         </section>
         <Footer/>

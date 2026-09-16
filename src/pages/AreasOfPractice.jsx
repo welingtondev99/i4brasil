@@ -11,7 +11,7 @@ const AreasOfPractice = () => {
             <div className='containerPagesText'>
                 <DefaultTop/>
                 <div>
-                    <h4>Conectamos desafios públicos às soluções que transformam</h4>
+                    <h2 className="title">Conectamos desafios públicos às soluções que transformam</h2>
                     <p>Presença em diversas frentes da infraestrutura brasileira, com resultados concretos em mais de 20 áreas estratégicas.</p>
                 </div>
                 <hr />
@@ -20,7 +20,7 @@ const AreasOfPractice = () => {
                     <p>No 10º UNECE International PPP Forum, o maior evento de parcerias público-privadas do mundo, a i4 Brasil foi responsável por 7 das 69 iniciativas selecionadas entre 180 inscritas — com o case Brusque Saneamento chancelado entre os 20 melhores projetos do planeta.</p>
                 </div>
                 <div>
-                    <h4>CASES EM DESTAQUE</h4>
+                    <h3>CASES EM DESTAQUE</h3>
                     <hr />
                     <div className="organizeCard">
                         <MainCardPerformace/>
@@ -30,7 +30,7 @@ const AreasOfPractice = () => {
                 </div>
                     <hr />
                 <div>
-                    <h4>ÁREAS DE ATUAÇÃO</h4>
+                    <h3>ÁREAS DE ATUAÇÃO</h3>
                     <p>Setores em que oferecemos soluções especializadas para os desafios mais complexos da infraestrutura, das concessões e do desenvolvimento urbano no Brasil.</p>
                     <div className="alingCard">
                         <CardPerformace/>
