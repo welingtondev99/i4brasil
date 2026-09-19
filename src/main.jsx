@@ -9,6 +9,8 @@ import AreasOfPractice from './pages/AreasOfPractice.jsx';
 import Team from './pages/Team.jsx';
 import AreasOfActivity from './pages/AreasOfActivity.jsx';
 import Insights from './pages/Insights.jsx';
+import { EstudosUseState } from './pages/EstudosUseState.jsx';
+import ContactUs from './pages/ContactUs.jsx';
 
 const router = createBrowserRouter([
   {
@@ -31,6 +33,7 @@ const router = createBrowserRouter([
     path: "/equipe",
     element: <Team/>
   },
+  // home
   {
     path: "/frentes",
     element: <AreasOfActivity/>
@@ -38,6 +41,14 @@ const router = createBrowserRouter([
   {
     path: "/insights",
     element: <Insights/>
+  },
+  {
+    path:'/estudos',
+    element: <EstudosUseState/>
+  },
+  {
+    path:'/contato',
+    element: <ContactUs/>
   },
 ]);
 

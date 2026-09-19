@@ -1,0 +1,47 @@
+.styleContactUs{
+    background-color: var(--roxo-primario);
+    padding: 2rem;
+    border-radius: 20px;
+}
+
+.styleContactUs p{
+    color: #fff;
+}
+
+.styleContactUs label{
+    color: #fff;
+    font-family: 'epilogue';
+}
+
+.styleContactUs select{
+    display: flex;
+    margin: 1rem 0;
+    font-family: "epilogue";
+    padding: 5px;
+    outline: none;
+    width: 100%;
+}
+
+.styleContactUs input{
+    border: none;
+    border-bottom: 2px solid #fff;
+    padding: 2px;
+    outline: none;
+    width: 100%;
+    background-color: var(--roxo-primario);
+    margin-bottom: 1rem;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.styleDados{
+    width: 50%;
+}
+
+.styleContactUs textarea{
+    width: 100%;
+    height: 150px;
+    font-size: 1rem;
+    outline: none;
+    padding: 2px;
+}
