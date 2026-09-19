@@ -19,8 +19,6 @@ const ContactUs = () => {
             alert("Preencha todos os campos!")
             console.log('não enviado')
             return
-        }else{
-            alert("Email enviado com sucesso!")
         }
 
         const templeteFarms ={
@@ -30,8 +28,14 @@ const ContactUs = () => {
             message:text
         }
 
-        emailjs.send("service_8hblckr","template_mwd8upt", templeteFarms, "8CuEks5D4F-DTVskR").then((response)=>{
+        emailjs.send(
+            import.meta.env.VITE_EMAILJS_SERVICE_ID,
+            import.meta.env.VITE_EMAILJS_TEMPLATE_ID, 
+            templeteFarms, 
+            import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        ).then((response)=>{
             console.log('enviado'), response.status, response.text
+            alert("Email enviado com sucesso!")
             setNome('')
             setEmail('')
             setText('')
