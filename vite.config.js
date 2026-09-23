@@ -8,5 +8,5 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  base: '/i4brasil/'
+  base: '/i4brasil/',
 })
