@@ -1,6 +1,6 @@
 import './button.css'
 
-const Button = ({variant ,text, fun}) => {
+const Button = ({variant ,text, fun, disabled, classe}) => {
   let className = 'buttonEl'
 
   if (variant === 'primary'){
@@ -10,9 +10,8 @@ const Button = ({variant ,text, fun}) => {
     className= 'styleButtonPages'
   }
 
-
   return (
-     <button onClick={fun} className={className}>{text}</button>
+     <button disabled={disabled} onClick={fun} className={`${className} ${classe}`}>{text}</button>
   )
 }
 

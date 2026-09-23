@@ -45,3 +45,41 @@
     outline: none;
     padding: 2px;
 }
+
+.feedback{
+    margin-top: 1rem;
+    min-height: 20px;
+}
+
+.red{
+    color: rgb(255, 65, 65) !important;
+    letter-spacing: 3px;
+    font-family: 'inter', sans-serif;
+    font-weight: 500;
+}
+.green{
+    color: rgb(46, 229, 157) !important;
+    letter-spacing: 3px;
+    font-family: 'inter', sans-serif;
+    font-weight: 500;
+   
+}
+.orange{
+    color: rgba(251, 141, 32, 0.842) !important;
+    letter-spacing: 3px;
+    font-family: 'inter', sans-serif;
+    font-weight: 500;
+   
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}

@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 :root {
   --roxo-primario: rgb(88, 48, 157);
   --roxo-claro: #8761c9;
