@@ -1,10 +1,9 @@
 import "../components/contactUs.css"
 import Button from "../components/Button"
 import { useState } from "react"
+import { useRef } from "react"
 import emailjs from "@emailjs/browser"
 import _default from "@emailjs/browser"
-import { useRef } from "react"
-
 
 const ContactUs = ()=>{
     const [nome, setNome] = useState('')
@@ -22,9 +21,21 @@ const ContactUs = ()=>{
     const human = 4000
 
     
-    function sendEmail(e){
+    async function sendEmail(e){
         e.preventDefault()
         
+        const timing = Date.now()
+
+        if(timing-timing2.current < human){
+            setFeedback({tipo: 'sucesso', msg: 'Email enviado com sucesso!'})
+            setNome('')
+            setEmail('')
+            setText('')
+            setAssunto('')
+            setHoneypot('')
+            return
+        }
+
         if(honeypot.trim() !== "" ){
             setFeedback({tipo: 'sucesso', msg: 'Email enviado com sucesso!'})
             setNome('')
@@ -34,14 +45,6 @@ const ContactUs = ()=>{
             setHoneypot('')
             return
         }
-        const timing = Date.now()
-        
-        // console.log(timing-timing2.current)
-        if(timing-timing2.current < human){
-            setFeedback({tipo: 'sucesso', msg: 'Email enviado com sucesso!'})
-            return
-        }
-
         
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())
 
@@ -59,32 +62,32 @@ const ContactUs = ()=>{
             assunto: assunto,
             message:text
         }
+
         setEnviando(true)
         
-        emailjs.send(
+        
+        try{const response = await emailjs.send(
             import.meta.env.VITE_EMAILJS_SERVICE_ID,
             import.meta.env.VITE_EMAILJS_TEMPLATE_ID, 
             templeteFarms,
             import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-        ).then((response)=>{
-            // console.log('enviado', response.status, response.text)
+            )
+             // console.log('enviado', response.status, response.text)
             // alert("Email enviado com sucesso!")
             setFeedback({tipo: 'sucesso', msg: 'Email enviado com sucesso!'})
             setNome('')
             setEmail('')
             setText('')
             setAssunto('')    
-        })
-        .catch((error) => {
-            console.error("Erro ao enviar:", error);
+        }catch(error){
+            // console.log("Erro ao enviar:", error);
             // alert("Ocorreu um erro ao enviar sua mensagem. Tente novamente mais tarde.")
             setFeedback({tipo: 'erro', msg: 'Ocorreu um erro ao enviar sua mensagem. Tente novamente mais tarde.'})
-        }).finally(()=>{setEnviando(false)})
-        
+        }finally{
+            setEnviando(false)
+        }
 
-        
     }
-    
     
   return (
     <section className='containerPages'>
