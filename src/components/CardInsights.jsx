@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import bdInsights from '../data/insights'
-import img from '../images/openClose.svg'
+import seta from '../images/chevron-up.svg'
 import "./cardInsights.css"
 
 
@@ -19,7 +19,7 @@ const CardInsights = () => {
             <div key={item.id} onClick={() => open(item.id)} className='styleInsights'>
               <div className='styleEl'>
                 <h3>{item.question}</h3>
-                <img src={img} alt="" className={newState ? 'imgDDD' : '90deg'} />
+                <img src={seta} alt="" className={newState ? 'imgDDD' : ''}/>
               </div>
                 <p className='text' style={{ display: newState ? 'block' : 'none' }}>{item.text}</p>
               </div>

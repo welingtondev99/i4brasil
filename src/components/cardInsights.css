@@ -16,11 +16,10 @@
 }
 
 .styleInsights img{
-    rotate: 45deg;
     width: 35px;
 }
 .imgDDD{
-    rotate: 90deg;
+    rotate: 180deg;
     width: 35px;
 }
 
