@@ -1,4 +1,4 @@
-@import "tailwindcss";
+
 
 :root {
   --roxo-primario: rgb(88, 48, 157);
@@ -11,9 +11,7 @@
   --line: #D0D0D0;
   --branco: #fff;
   --header-height: 12rem;
-  --epilogue: 'epilgue', sans-serif
-  --inter: 'inter', sans-serif
-  --epilogue: 'epilgue', sans-serif
+
 }
 
 #center{

@@ -4,6 +4,7 @@ import NationalPresence from './components/NationalPresence'
 import './App.css'
 import './components/home.css'
 import Footer from './components/Footer'
+import { Outlet, ScrollRestoration } from 'react-router-dom'
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
 
   return (
     <>
+      <ScrollRestoration/>
       <Header/>
       <section id="center">
         <Home/>
@@ -20,6 +22,7 @@ function App() {
       </section>
       <div className="ticks"></div>
       <section id="spacer"></section>
+      <Outlet/>
     </>
   )
 }

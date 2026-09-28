@@ -52,6 +52,7 @@ footer hr{
 }
 
 .paragraphFooter{
+    /* font-family: 'epilogue'; */
     color: #fff;
     font-size: .8rem;
 }
@@ -118,7 +119,7 @@ footer hr{
     grid-auto-flow: column;
     justify-content: space-between;
     width: 80%;
-    margin: 0 auto;
+
 }
 
 
