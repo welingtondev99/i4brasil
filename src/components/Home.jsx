@@ -9,7 +9,7 @@ const Home = () => {
     <div className=' container'> 
       <h1>
         Instituto de Infraestrutura, Inteligência e Inovação —
-        <span className='spani4'> i4 Brasil</span>
+        <span className='spani4 !text-8x1'> i4 Brasil</span>
       </h1>
       <h2>
         Expertise técnica para transformar projetos públicos em resultados.
