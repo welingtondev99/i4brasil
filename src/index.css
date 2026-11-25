@@ -105,6 +105,29 @@ img{
   height: auto;
 }
 
+/* =====================================================
+   TEMA DA CLIENTE (guia de design) — ligado pelo botão
+   "Padrão da cliente" (src/components/TemaToggle.jsx).
+   Títulos em Bebas Neue, texto em Lato, roxo #422774 como
+   principal e verde-água #069790 + roxo #594195 como
+   secundárias. Desligado, vale o tema padrão acima.
+   ===================================================== */
+:root[data-tema="cliente"]{
+  --font-title: 'Bebas Neue', 'Arial Narrow', sans-serif;
+  --font-body: 'Lato', system-ui, sans-serif;
+  --roxo-primario: #422774;
+  --roxo-secundario: #069790;  /* verde-água entra como destaque */
+  --roxo-claro: #594195;
+  --sub-titulos: var(--roxo-primario);
+  /* Bebas Neue só tem um peso: sem negrito falso */
+  font-synthesis-weight: none;
+}
+
+:root[data-tema="cliente"] :is(h1, h2, h3){
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
 /* Hierarquia: h1 hero · h2 seção · h3 subtítulo · h4 card */
 h1{
   font-family: var(--font-title);

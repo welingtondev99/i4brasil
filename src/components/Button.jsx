@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import LinkRota from './LinkRota'
 import './button.css'
 
 const VARIANTS = {
@@ -17,7 +17,7 @@ const Button = ({ variant, size = 'md', text, fun, disabled, classe = '', to, hr
   const className = `${base} ${SIZES[size] ?? ''} ${classe}`.trim()
 
   if (to) {
-    return <Link to={to} className={className}>{text}</Link>
+    return <LinkRota to={to} className={className}>{text}</LinkRota>
   }
 
   if (href) {

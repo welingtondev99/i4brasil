@@ -35,7 +35,88 @@
 }
 
 .styleDados{
-    width: 50%;
+    width: 100%;
+}
+
+/* Duas colunas: formulário e informações de contato */
+.contatoLayout{
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    gap: var(--space-7);
+    align-items: start;
+}
+
+.contatoInfo{
+    padding: var(--space-5) 0;
+}
+
+.contatoInfo h3{
+    margin-bottom: var(--space-2);
+}
+
+.contatoIntro{
+    margin-bottom: var(--space-5);
+}
+
+.contatoCanais{
+    list-style: none;
+    margin: 0 0 var(--space-6);
+    padding: 0;
+    display: grid;
+    gap: var(--space-3);
+}
+
+.contatoCanais a,
+.contatoUnidade address{
+    display: grid;
+    grid-template-columns: 1.5rem 1fr;
+    gap: var(--space-3);
+    align-items: start;
+    color: inherit;
+    text-decoration: none;
+    font-style: normal;
+}
+
+.contatoCanais a:hover span{
+    text-decoration: underline;
+}
+
+.contatoCanais svg,
+.contatoUnidade svg{
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--roxo-primario);
+}
+
+.contatoUnidades{
+    display: grid;
+    gap: var(--space-5);
+    border-top: 1px solid var(--line);
+    padding-top: var(--space-5);
+}
+
+.contatoCidade{
+    font-size: var(--fs-small);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--roxo-secundario);
+}
+
+.contatoUnidade h4{
+    margin: var(--space-1) 0 var(--space-2);
+}
+
+.contatoUnidade address{
+    font-size: var(--fs-small);
+    line-height: 1.5;
+}
+
+@media (max-width: 860px){
+    .contatoLayout{
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+    }
 }
 
 .styleContactUs textarea{
@@ -82,4 +163,56 @@
   clip: rect(0, 0, 0, 0) !important;
   white-space: nowrap !important;
   border: 0 !important;
+}
+/* Página interna: espaço abaixo da barra fixa, como as seções da home */
+.paginaInterna{
+    padding-top: calc(var(--header-bar) + var(--space-7));
+    padding-bottom: var(--space-7);
+    background-color: var(--background);
+    min-height: 100vh;
+}
+
+/* Contador, consentimento e aviso de privacidade */
+.contadorMensagem{
+    display: block;
+    margin: 0.35rem 0 1rem;
+    font-size: var(--fs-small);
+    color: rgba(255, 255, 255, 0.75);
+    text-align: right;
+}
+
+.styleContactUs .consentimento{
+    display: grid;
+    grid-template-columns: 1.1rem 1fr;
+    gap: var(--space-3);
+    align-items: start;
+    margin-top: var(--space-2);
+    font-size: var(--fs-small);
+    line-height: 1.45;
+    cursor: pointer;
+}
+
+.styleContactUs .consentimento input{
+    width: 1.1rem;
+    height: 1.1rem;
+    margin: 0.15rem 0 0;
+    padding: 0;
+    accent-color: var(--branco);
+}
+
+.styleContactUs .avisoPrivacidade{
+    margin: var(--space-3) 0 0;
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+/* Assunto e mensagem com fundo claro, como antes (as classes do Tailwind saíram) */
+.styleContactUs select,
+.styleContactUs textarea{
+    background-color: var(--branco);
+    color: #1f1b2e;
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 0.6rem;
 }

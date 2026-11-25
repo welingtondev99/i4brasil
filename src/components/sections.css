@@ -1,5 +1,5 @@
 /* Na home as seções já têm espaçamento próprio; o rodapé encosta nelas */
-main + footer{
+main + footer.rodape{
     margin-top: 0;
 }
 
@@ -123,7 +123,10 @@ main + footer{
     justify-content: space-between;
     gap: var(--space-2);
     aspect-ratio: 1 / 1;
-    padding: var(--space-2);
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+    padding: 0.4rem;
     border-radius: 0.5rem;
     color: var(--branco);
 }
@@ -139,7 +142,7 @@ main + footer{
 }
 
 .odsNome{
-    font-size: clamp(0.5rem, 0.3rem + 0.55vw, 0.72rem);
+    font-size: clamp(0.42rem, 0.2rem + 0.45vw, 0.66rem);
     font-weight: 700;
     line-height: 1.15;
     text-transform: uppercase;
@@ -295,6 +298,9 @@ main + footer{
     right: var(--space-4);
     bottom: var(--space-4);
     margin: 0;
+    width: max-content;
+    max-width: calc(100% - (var(--space-4) * 2));
+    white-space: nowrap;
 }
 
 /* =========== Responsivo =========== */
@@ -315,10 +321,19 @@ main + footer{
 
 @media (max-width: 640px){
     .odsGrade{
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0.4rem;
+    }
+    .odsItem{
+        padding: 0.3rem;
+        border-radius: 0.4rem;
+    }
+    .odsNumero{
+        font-size: 1rem;
     }
     .odsNome{
-        font-size: 0.62rem;
+        font-size: 0.5rem;
+        line-height: 1.1;
     }
     .reconhecimentoNumeros{
         grid-template-columns: 1fr;

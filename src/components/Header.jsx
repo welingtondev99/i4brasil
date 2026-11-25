@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import LinkRota from './LinkRota'
+import TemaToggle from './TemaToggle'
 import './header.css'
 import './button.css'
 import '../App.css'
@@ -81,6 +83,8 @@ const Header = () => {
   const transparente = naHome && !rolou && !aberto
 
   return (
+    <>
+    <TemaToggle />
     <header className={`navegation ${transparente ? 'navegation--topo' : ''}`}>
       <div className='container navInterna'>
         <Link className='logoLink' to='/' aria-label='i4 Brasil, página inicial'>
@@ -91,7 +95,7 @@ const Header = () => {
           {itens}
         </nav>
 
-        <Link className='btn btn--inverso btn--sm contatoTopo' to='/contato'>CONTATO</Link>
+        <LinkRota className='btn btn--inverso btn--sm contatoTopo' to='/contato'>CONTATO</LinkRota>
 
         <button
           type='button'
@@ -116,13 +120,14 @@ const Header = () => {
         <nav id='menu-movel' className='menuMovel' aria-label='Menu'>
           <div className='container menuMovelLista'>
             {itens}
-            <Link className='btn btn--inverso btn--md menuContato' to='/contato' onClick={() => setAberto(false)}>
+            <LinkRota className='btn btn--inverso btn--md menuContato' to='/contato' onClick={() => setAberto(false)}>
               CONTATO
-            </Link>
+            </LinkRota>
           </div>
         </nav>
       )}
     </header>
+    </>
   )
 }
 

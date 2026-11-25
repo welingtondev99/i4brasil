@@ -1,155 +1,151 @@
-footer{
+/* =========== Rodapé compacto =========== */
+footer.rodape{
     background-color: var(--roxo-primario);
+    color: #fff;
+    margin-top: 6rem;
+    padding: var(--space-7) 0 var(--space-5);
+}
+
+.rodapeTopo,
+.rodapeBase{
+    width: min(100% - 2 * var(--space-5), 1100px);
+    margin-inline: auto;
+}
+
+.rodapeTopo{
     display: grid;
-    bottom: 0px;
-    margin-top: 10rem;
+    grid-template-columns: 1.4fr 1fr 1.6fr;
+    gap: var(--space-6);
+    align-items: start;
 }
 
-footer hr{
-    margin: 2rem 0rem 3rem 0rem;
-    border: none;
-    height: 1px;
-    width: 80%;
-    margin: 2rem auto;
-    background-color: var(--line);
+.rodapeTopo h4{
+    color: #fff;
+    margin: 0 0 var(--space-3);
+    font-size: var(--fs-small);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    opacity: 0.9;
 }
 
-.styleFooter, .footerFinal span{
+.rodapeTopo ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-2);
+}
+
+.rodapeTopo a{
+    color: #fff;
+    text-decoration: none;
     font-family: var(--font-body);
+    font-size: var(--fs-small);
 }
 
-/* Logo colorida numa pílula clara, para ler sobre o roxo do rodapé */
+.rodapeTopo a:hover{
+    text-decoration: underline;
+}
+
+/* Marca */
 .backgroundI4{
     box-sizing: border-box;
     background-color: var(--background);
-    height: 3.5rem;
+    height: 3rem;
     width: auto;
     max-width: 100%;
-    padding: 0.625rem 1.5rem;
+    padding: 0.5rem 1.25rem;
     object-fit: contain;
     border-radius: 45px;
-    margin-bottom: 1rem;
-}
-
-.limitFooter{
-    margin: 15px auto;
-    display: grid;
-    justify-content: space-between;
-}
-
-.styleFooter{
-    background-color: var(--roxo-primario);
-    color: #fff;
-    display: grid;
-    grid-auto-flow: column;
-    gap: 15px;
-    grid-auto-columns: 1fr 1fr 1fr 1fr;
-    width: 80%;
-    margin: 0 auto;
-}
-
-.styleFooter img{
-    margin-right: 10px;
+    margin-bottom: var(--space-3);
 }
 
 .paragraphFooter{
-    /* font-family: 'epilogue'; */
     color: #fff;
-    font-size: .8rem;
-}
-.limitFooter a{
-    width: fit-content;
-    text-decoration: none;
-    color: #fff;
-    display: flex;
-    padding-bottom: 10px;
     font-family: var(--font-body);
-    font-size: 0.8rem;
+    font-size: var(--fs-small);
+    margin: 0 0 var(--space-4);
 }
 
-.limitFooter h4{
-    color: #fff;
-}
-
-.styleFooter span{
-    color: #fff;
-    font-size: .8rem;
-}
-
-.limitFooter li{
-    list-style: none;
-}
-
-/* .socialEndTerms{
+/* Redes sociais: mesmo tamanho para todos */
+.rodapeTopo .redes{
     display: flex;
-    flex-direction: column;
-    text-align: end;
-} */
-.socialEndTerms{
-    display: flex;
-    align-items: flex-end;
-    flex-direction: column;
+    gap: var(--space-3);
 }
 
-.social{
-    display: flex;
-    justify-content: flex-end;
+.rodapeTopo .redes a{
+    display: inline-grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255, 255, 255, 0.45);
 }
 
-.align{
-    align-items: center;
+.redes a:hover{
+    background-color: rgba(255, 255, 255, 0.12);
+    text-decoration: none;
 }
 
-.social img{
-    padding-left: 20px;
-    display: flex;
-    text-align: end;
-    width: 40px;
-    margin-right: 0;
-}
-
-.align img{
-    
-    display: flex;
-    text-align: end;
-    width: 20px;
-}
-
-.footerFinal{
+/* Contatos e navegação: ícone + texto alinhados */
+.rodapeContato li a{
     display: grid;
-    grid-auto-flow: column;
-    justify-content: space-between;
-    width: 80%;
-
+    grid-template-columns: 1.25rem 1fr;
+    gap: var(--space-3);
+    align-items: start;
 }
 
+.footerIcon{
+    width: 1.25rem;
+    height: 1.25rem;
+    flex-shrink: 0;
+}
 
-@media (max-width: 995px){
-    .limitFooter{
-        width: 80%;
+/* Base */
+.rodapeBase{
+    margin-top: var(--space-6);
+    padding-top: var(--space-4);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.rodapeBase .paragraphFooter{
+    margin: 0;
+    opacity: 0.85;
+}
+
+.rodapeLinks{
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+}
+
+.rodapeLinks a{
+    color: #fff;
+    font-size: var(--fs-small);
+    opacity: 0.85;
+}
+
+@media (max-width: 860px){
+    .rodapeTopo{
+        grid-template-columns: 1fr 1fr;
     }
-
-    .styleFooter{
-        grid-auto-flow: row;
-        width: 100%;
+    .rodapeMarca{
+        grid-column: 1 / -1;
     }
+}
 
-    .socialEndTerms{
-        align-items: start;
+@media (max-width: 560px){
+    .rodapeTopo{
+        grid-template-columns: 1fr;
+        gap: var(--space-5);
     }
-
-    .footerFinal{
-        grid-auto-flow: row;
-        margin-bottom: 20px;
-        
-    }
-
-    .social{
-        justify-content: flex-start;
-    }
-
-    .social img{
-        padding: 0 20px 0 0;
-        
+    .rodapeBase{
+        flex-direction: column;
+        align-items: flex-start;
     }
 }

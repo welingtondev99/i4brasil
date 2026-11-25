@@ -12,11 +12,11 @@
 //
 // Opção sem mexer no código: ver src/data/usePresenca.js (planilha publicada).
 // =====================================================================
-import energia from '../assets/eficiencia-energetica.svg'
-import saneamento from '../assets/infraestrutura-saneamento.svg'
-import administrativo from '../assets/centro-administrativo.svg'
-import governanca from '../assets/governanca-corporativa.svg'
-import concessoes from '../assets/concessoes-modelagem.svg'
+import energia from '../assets/icone-eficiencia-energetica.svg'
+import saneamento from '../assets/icone-infraestrutura-saneamento.svg'
+import administrativo from '../assets/icone-cidade-administrativa.svg'
+import governanca from '../assets/icone-governanca-corporativa.svg'
+import concessoes from '../assets/icone-modelagem-construcao.svg'
 
 export const icones = { energia, saneamento, administrativo, governanca, concessoes }
 

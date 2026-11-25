@@ -5,6 +5,9 @@ import TermsOfUse from './pages/TermsOfUse.jsx';
 import App from './App.jsx'
 import PrivacyPolicy from './pages/PrivacyPolicy.jsx';
 import './index.css'
+import { iniciarTema } from './utils/tema.js'
+
+iniciarTema()
 import AreasOfPractice from './pages/AreasOfPractice.jsx';
 import Team from './pages/Team.jsx';
 import AreasOfActivity from './pages/AreasOfActivity.jsx';

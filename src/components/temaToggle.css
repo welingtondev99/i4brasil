@@ -1,0 +1,70 @@
+/* Botão flutuante que alterna o padrão visual da cliente */
+.temaToggle{
+    position: fixed;
+    left: var(--space-4);
+    bottom: var(--space-4);
+    z-index: 60;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    height: 2.5rem;
+    padding: 0 var(--space-4) 0 var(--space-3);
+    border-radius: 999px;
+    border: 1.5px solid rgba(255, 255, 255, 0.35);
+    background-color: rgba(11, 11, 15, 0.88);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    font-family: 'Lato', system-ui, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.temaToggle:focus-visible{
+    outline: 3px solid #069790;
+    outline-offset: 3px;
+}
+
+.temaToggleBola{
+    position: relative;
+    width: 1.75rem;
+    height: 1rem;
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.3);
+    transition: background-color .2s ease;
+}
+
+.temaToggleBola::after{
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: calc(1rem - 4px);
+    height: calc(1rem - 4px);
+    border-radius: 50%;
+    background-color: #fff;
+    transition: transform .2s ease;
+}
+
+.temaToggle--ligado .temaToggleBola{
+    background-color: #069790;
+}
+
+.temaToggle--ligado .temaToggleBola::after{
+    transform: translateX(0.75rem);
+}
+
+@media (prefers-reduced-motion: reduce){
+    .temaToggleBola,
+    .temaToggleBola::after{ transition: none; }
+}
+
+@media (max-width: 640px){
+    .temaToggle{
+        left: var(--space-3);
+        bottom: var(--space-3);
+        height: 2.25rem;
+        font-size: 0.72rem;
+    }
+}
