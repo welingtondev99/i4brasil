@@ -27,7 +27,7 @@
 }
 
 .AreasOfOperationCard li{
-    font-family: 'inter';
+    font-family: var(--font-body);
     font-size: .9rem;
     list-style-position: inside;
     color: var(--paragraph);
@@ -37,7 +37,7 @@
     text-decoration: none;
     color: var(--roxo-primario);
     font-weight: 900;
-    font-family: 'epilogue', sans-serif;
+    font-family: var(--font-body);
     margin-top: 2rem;
     font-size: 1.2rem;
     display: flex;

@@ -1,0 +1,223 @@
+/* Abertura cinematográfica: a rolagem avança a cena e troca os 3 momentos de texto.
+   Altura do trecho = --cine-h (entre 380vh e 500vh). */
+.cine{
+    --cine-h: 260vh;
+    position: relative;
+    height: var(--cine-h);
+    background: var(--preto);
+}
+
+.cineStage{
+    --p: 0;
+    position: sticky;
+    top: 0;
+    height: 100svh;
+    overflow: hidden;
+}
+
+.cinePoster,
+.cineCanvas{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Sem vídeo: foto com zoom lento acompanhando a rolagem */
+.cinePoster{
+    background-size: cover;
+    background-position: center;
+    transform: scale(calc(1 + var(--p) * 0.18));
+    will-change: transform;
+}
+
+.cineShade{
+    position: absolute;
+    inset: 0;
+    /* roxo da marca só atrás do texto (à esquerda); a cidade, à direita, fica quase sem cobertura */
+    background:
+        linear-gradient(90deg, rgba(66, 39, 116, 0.9) 0%, rgba(66, 39, 116, 0.62) 30%, rgba(66, 39, 116, 0.16) 55%, rgba(66, 39, 116, 0) 75%),
+        linear-gradient(180deg, rgba(11, 11, 15, 0.5) 0%, rgba(11, 11, 15, 0) 22%, rgba(11, 11, 15, 0) 70%, rgba(11, 11, 15, 0.4) 100%);
+}
+
+.cineMoments{
+    position: relative;
+    height: 100%;
+}
+
+.momento{
+    position: absolute;
+    inset-block: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    width: min(100%, 56rem);
+    /* reserva espaço em cima (cabeçalho) e embaixo ("Role para continuar" e barra) */
+    padding-top: var(--header-height);
+    padding-bottom: var(--space-9);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(1.5rem);
+    transition: opacity .6s ease, transform .6s ease, visibility .6s;
+}
+
+.momento.ativo{
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+}
+
+/* Âncoras do cabeçalho: não deixa o título da seção ficar sob o menu fixo */
+section[id]:not(#inicio){
+    scroll-margin-top: calc(var(--header-height) - var(--space-4));
+}
+
+/* Layout do briefing (referência Webflow): texto direto sobre a cena, sem caixa.
+   Título grande à esquerda, uma frase menor embaixo e os botões logo abaixo. */
+.painel{
+    width: 100%;
+    color: var(--branco);
+    /* sombra suave: garante a leitura onde a imagem está mais clara */
+    text-shadow: 0 1px 28px rgba(11, 11, 15, 0.5);
+}
+
+.painel h1,
+.painel h2{
+    color: var(--branco);
+    max-width: 20ch;
+    letter-spacing: -0.01em;
+}
+
+/* o limite em svh impede que o título empurre os botões para fora da tela em janelas baixas */
+.painel h1{
+    font-size: min(clamp(2.75rem, 1.25rem + 4.4vw, 5rem), 10.5svh);
+    line-height: 1.02;
+    margin-bottom: var(--space-5);
+}
+
+.painel h2{
+    font-size: min(clamp(2.25rem, 1rem + 3.4vw, 4rem), 10svh);
+    line-height: 1.05;
+    margin-bottom: var(--space-5);
+}
+
+/* frase menor que complementa o título */
+.painel .lead,
+.painel p{
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.painel .lead{
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    max-width: 44ch;
+    text-wrap: pretty;
+    margin-bottom: var(--space-6);
+}
+
+.numeros{
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4) var(--space-7);
+    margin-bottom: var(--space-6);
+}
+
+.numeros p{
+    margin: 0;
+    font-size: var(--fs-small);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.numeros strong{
+    display: block;
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: var(--fs-display);
+    line-height: 0.9;
+    letter-spacing: 0;
+    color: var(--branco);
+}
+
+/* Progresso e dica */
+.cineProgress{
+    position: absolute;
+    left: var(--gutter);
+    right: var(--gutter);
+    bottom: var(--space-5);
+    height: 2px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.cineProgress span{
+    display: block;
+    height: 100%;
+    background: var(--branco);
+    transform-origin: left;
+    transform: scaleX(var(--p));
+}
+
+.cineDica{
+    position: absolute;
+    right: var(--gutter);
+    bottom: var(--space-7);
+    margin: 0;
+    font-size: var(--fs-small);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.75);
+    transition: opacity .4s ease;
+}
+
+.cineStage.andou .cineDica{
+    opacity: 0;
+}
+
+/* Movimento reduzido: sem rolagem animada, os três blocos ficam empilhados */
+.cine--static{
+    height: auto;
+}
+
+.cine--static .cineStage{
+    position: relative;
+    height: auto;
+    min-height: 100svh;
+    padding-block: calc(var(--header-height) + var(--space-6)) var(--space-8);
+}
+
+.cine--static .cinePoster{
+    transform: none;
+}
+
+.cine--static .cineMoments{
+    display: grid;
+    gap: var(--space-6);
+    height: auto;
+}
+
+.cine--static .momento{
+    position: static;
+    padding-top: 0;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+}
+
+.cine--static .cineProgress,
+.cine--static .cineDica{
+    display: none;
+}
+
+/* Tela em pé: o recorte ao centro perderia a cidade, que na foto está à direita */
+@media (max-aspect-ratio: 1/1){
+    .cinePoster{
+        background-position: 68% 50%;
+    }
+}
+
+@media (max-width: 640px){
+    .cineShade{
+        /* no celular o texto ocupa a largura toda, então o roxo cobre a faixa do texto e alivia nas pontas */
+        background: linear-gradient(180deg, rgba(11, 11, 15, 0.5) 0%, rgba(66, 39, 116, 0.55) 40%, rgba(66, 39, 116, 0.55) 62%, rgba(11, 11, 15, 0.45) 100%);
+    }
+}

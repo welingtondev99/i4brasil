@@ -1,31 +1,57 @@
-.national{
-    height: 100vh;
+/* Faixa de logos: mais compacta que as demais seções */
+.section.secaoParceiros{
+    padding-block: var(--space-7);
+    background-color: var(--background);
 }
 
-.org{
+.secaoPresenca{
+    background-color: var(--branco);
+}
+
+/* Texto à esquerda, mapa à direita; empilha abaixo de 960px */
+.presenca{
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin-bottom: 2rem;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--space-8);
+    /* start: o mapa nunca recentraliza o texto quando o conteúdo muda */
+    align-items: start;
 }
 
-.orgTop{
-     grid-column: 1/3; 
+.presencaTexto > p:last-of-type{
+    margin-bottom: var(--space-5);
 }
 
-.desingDivImageMap{
+.presencaNumeros{
     display: flex;
-
+    flex-wrap: wrap;
+    gap: var(--space-4) var(--space-7);
+    list-style: none;
+    margin: var(--space-5) 0;
 }
 
-.imageMap{
-    max-width: 100%;
+.presencaNumeros strong{
+    display: block;
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: var(--fs-display);
+    line-height: 0.9;
+    color: var(--roxo-primario);
 }
 
-@media (max-width: 1000px){
-    .org{
-        display: block;
-    }
-    .desingDivImageMap{
-        margin-top: 5rem;
+.presencaNumeros span{
+    font-size: var(--fs-small);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.presencaDestaques{
+    margin-top: var(--space-8);
+}
+
+@media (max-width: 960px){
+    .presenca{
+        grid-template-columns: 1fr;
+        gap: var(--space-7);
     }
 }

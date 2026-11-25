@@ -1,72 +1,25 @@
-
-
-:root {
-  --roxo-primario: rgb(88, 48, 157);
-  --roxo-claro: #8761c9;
-  --roxo-transparente: #8761c97a;
-  --background: #F3F5F7;
-  --paragraph: #4A4A55;
-  --sub-titulos: #58309d;
-  --cinza-claro: #D9D9D9;
-  --line: #D0D0D0;
-  --branco: #fff;
-  --header-height: 12rem;
-
-}
-
-#center{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)), url(/src/images/hero-city.jpg);
-    height: 100vh;
-    background-repeat: no-repeat;
-    display: flex;
-    align-items: center;
-    background-size: cover;
-    flex-direction: column;
-  }
-  
-  .desingCenter{
-    max-height: 100vh;
-    background-repeat: no-repeat;
-    display: flex;
-    align-items: center;
-    background-size: cover;
-    flex-direction: column;
-    
-}
-
+/* Layout compartilhado. Cores, espaços e fontes vêm dos tokens em index.css */
 .container{
-  padding-top: var(--header-height);
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 7rem;
-  width: 80%;
-  /* margin: 0 auto; */
-  max-width: 1500px;
-  color: white;
+  width: min(100% - 2 * var(--gutter), var(--container));
+  margin-inline: auto;
 }
 
-.containerPages{
-  width: 80%;
-  margin: 0 auto;
+.section{
+  padding-block: var(--section-y);
 }
 
+.containerPages,
 .containerPagesText{
-  width: 80%;
-  margin: 0 auto;
+  width: min(100% - 2 * var(--gutter), var(--container));
+  margin-inline: auto;
 }
 
 .StylePrivacyPolicy p{
-    width: 100%;
+  width: 100%;
+  max-width: none;
 }
 
 .lgpd{
-    color:#0A6EB5;
-    font-weight: 800;
-}
-
-@media (max-width: 1600px){
-  .container{
-     margin-bottom: 2rem;
-  }
+  color: #0A6EB5;
+  font-weight: 800;
 }

@@ -13,7 +13,7 @@
 }
 
 .TeamOverviewCard span{
-    font-family: 'inter';
+    font-family: var(--font-body);
     font-size: .9rem;
     width: auto;
     margin-bottom: 0;

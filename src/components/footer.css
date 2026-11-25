@@ -15,17 +15,18 @@ footer hr{
 }
 
 .styleFooter, .footerFinal span{
-    font-family: 'epilogue', sans-serif;
+    font-family: var(--font-body);
 }
 
+/* Logo colorida numa pílula clara, para ler sobre o roxo do rodapé */
 .backgroundI4{
+    box-sizing: border-box;
     background-color: var(--background);
-    min-width: 150px;
-    padding: 0rem 1rem;
-    text-decoration: none;
-    /* color: #000000; */
-    max-height: 70px;
-    height: 55px;
+    height: 3.5rem;
+    width: auto;
+    max-width: 100%;
+    padding: 0.625rem 1.5rem;
+    object-fit: contain;
     border-radius: 45px;
     margin-bottom: 1rem;
 }
@@ -62,7 +63,7 @@ footer hr{
     color: #fff;
     display: flex;
     padding-bottom: 10px;
-    font-family: 'epilogue', sans-serif;
+    font-family: var(--font-body);
     font-size: 0.8rem;
 }
 

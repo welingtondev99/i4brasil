@@ -21,7 +21,7 @@
 .textCardPerformace span{
     color: var(--roxo-primario);
     font-weight: 500;
-    font-family: 'epilogue', sans-serif;
+    font-family: var(--font-body);
 }
 
 @media(max-width: 1000px){

@@ -1,17 +1,31 @@
+import { Link } from 'react-router-dom'
 import './button.css'
 
-const Button = ({variant ,text, fun, disabled, classe}) => {
-  let className = 'buttonEl'
+const VARIANTS = {
+  primary: 'btn btn--primary',
+  inverso: 'btn btn--inverso',
+  outline: 'btn btn--outline',
+  secundary: 'styleButtonPages',
+}
 
-  if (variant === 'primary'){
-    className = 'buttonEl' 
+const SIZES = { sm: 'btn--sm', md: 'btn--md', lg: 'btn--lg' }
+
+// size: 'sm' (40px) | 'md' (48px, padrão) | 'lg' (56px)
+// to: rota interna · href: âncora ou link externo
+const Button = ({ variant, size = 'md', text, fun, disabled, classe = '', to, href }) => {
+  const base = VARIANTS[variant] ?? 'buttonEl'
+  const className = `${base} ${SIZES[size] ?? ''} ${classe}`.trim()
+
+  if (to) {
+    return <Link to={to} className={className}>{text}</Link>
   }
-  else if (variant === 'secundary'){
-    className= 'styleButtonPages'
+
+  if (href) {
+    return <a href={href} className={className}>{text}</a>
   }
 
   return (
-     <button disabled={disabled} onClick={fun} className={`${className} ${classe}`}>{text}</button>
+    <button disabled={disabled} onClick={fun} className={className}>{text}</button>
   )
 }
 

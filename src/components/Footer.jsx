@@ -1,4 +1,4 @@
-import  Logo  from "../images/logoi4brasil.svg";
+import Logo from "../images/logo-i4-colorida.webp";
 import whatsapp from "../images/whatsapp.svg"
 import instagram from "../images/instagram.svg"
 import linkedin from "../images/linkedin.svg"

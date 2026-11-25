@@ -3,12 +3,36 @@
     color: #fff;
 }
 
+.heroHome{
+    justify-items: start;
+}
+
+.heroHome h1{
+    color: var(--branco);
+    width: 100%;
+    max-width: 16ch;
+    text-wrap: balance;
+}
+
+.heroHome .heroLead{
+    color: rgba(255, 255, 255, 0.85);
+    font-size: clamp(1rem, 1.4vw, 1.25rem);
+    max-width: 52ch;
+    width: 100%;
+    margin-bottom: 2.5rem;
+}
 
 .spani4{
-    color: #8761C9;
+    color: var(--roxo-secundario);
 }
 
 .button{
     display: flex;
-    gap: 15px;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+@media (max-width: 600px){
+    .heroHome{ justify-items: stretch; }
+    .button{ flex-direction: column; width: 100%; }
 }
