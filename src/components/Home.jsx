@@ -2,29 +2,23 @@ import Button from './Button'
 import './home.css'
 import '../App.css'
 
-
 const Home = () => {
-   return (
-    <>
-    <div className=' container'> 
+  return (
+    <div className='container heroHome'>
       <h1>
-        Instituto de Infraestrutura, Inteligência e Inovação —
-        <span className='spani4'> i4 Brasil</span>
+        Infraestrutura, inteligência e inovação para
+        <span className='spani4'> transformar cidades.</span>
       </h1>
-      <h2>
-        Expertise técnica para transformar projetos públicos em resultados.
-      </h2>
-      <h3>
-        Estruturamos PPPs, concessões e projetos de infraestrutura integrando as dimensões técnica, jurídica, econômico-financeira e institucional.
-      </h3>
+      <p className='heroLead'>
+        Estruturamos PPPs, concessões e projetos de infraestrutura integrando as
+        dimensões técnica, jurídica, econômico-financeira e institucional.
+      </p>
       <div className='button'>
-        <Button variant={'primary'} text={"FALAR COM A I4 ->"}/>
-        <Button variant={'primary'} text={"VER ÁREAS DE ATUAÇÃO"}/>
+        <Button variant='primary' text='Quem somos' to='/equipe' />
+        <Button variant='outline' text='Entre em contato' to='/contato' />
       </div>
     </div>
-    </>
   )
-
 }
 
 export default Home

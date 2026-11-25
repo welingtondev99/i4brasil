@@ -1,9 +1,91 @@
-.designPartnes{
-    display: flex;
+/* Carrossel contínuo de logos */
+.carrossel{
+    --carrossel-gap: var(--space-7);
 }
 
+.carrosselJanela{
+    overflow: hidden;
+    /* bordas dissolvem em vez de cortar a logo */
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+}
+
+.carrosselTrilha{
+    display: flex;
+    width: max-content;
+    animation: carrosselRolar 40s linear infinite;
+}
+
+.carrosselGrupo{
+    display: flex;
+    flex: none;
+    align-items: center;
+    gap: var(--carrossel-gap);
+    padding-inline-end: var(--carrossel-gap); /* o -50% da animação fecha exato */
+    list-style: none;
+}
+
+.carrossel:hover .carrosselTrilha,
+.carrossel:focus-within .carrosselTrilha,
+.carrossel--pausado .carrosselTrilha{
+    animation-play-state: paused;
+}
+
+@keyframes carrosselRolar{
+    to{ transform: translateX(-50%); }
+}
+
+/* Logos com a mesma altura, qualquer proporção */
 .default{
+    display: block;
+    height: var(--space-8);
+    width: auto;
+    max-width: 10rem;
     object-fit: contain;
     object-position: center;
-    margin: 10px;
+    user-select: none;
+}
+
+.carrosselPausa{
+    display: block;
+    margin: var(--space-4) auto 0;
+    padding: var(--space-1) var(--space-4);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-pill);
+    background: transparent;
+    font: inherit;
+    font-size: var(--fs-small);
+    color: var(--paragraph);
+    cursor: pointer;
+}
+
+.carrosselPausa:hover{
+    border-color: var(--roxo-secundario);
+    color: var(--roxo-primario);
+}
+
+.carrosselPausa:focus-visible{
+    outline: 3px solid var(--roxo-secundario);
+    outline-offset: 2px;
+}
+
+/* Movimento reduzido: sem rolagem, só as logos originais em linhas */
+@media (prefers-reduced-motion: reduce){
+    .carrosselJanela{
+        -webkit-mask-image: none;
+        mask-image: none;
+    }
+    .carrosselTrilha{
+        animation: none;
+        width: auto;
+    }
+    .carrosselGrupo{
+        flex-wrap: wrap;
+        padding-inline-end: 0;
+    }
+    .carrosselGrupo[aria-hidden='true'],
+    .carrosselGrupo li[aria-hidden='true'],
+    .carrosselPausa{
+        display: none;
+    }
 }

@@ -1,0 +1,105 @@
+.mapaPresenca{
+    display: grid;
+    gap: var(--space-5);
+    align-content: start;
+}
+
+.mapaSvg{
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 34rem;
+    outline: none;
+}
+
+.uf{
+    fill: #e4e6ea;
+    stroke: var(--branco);
+    stroke-width: 1;
+    vector-effect: non-scaling-stroke;
+    stroke-linejoin: round;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.uf--ativa{
+    fill: var(--roxo-secundario);
+    cursor: pointer;
+    transition: fill .2s ease;
+}
+
+/* Sem anel de foco ao clicar ou tocar; o contorno do estado não muda */
+.uf--ativa:focus{
+    outline: none;
+}
+
+.uf--ativa:hover,
+.uf--marcada{
+    fill: var(--roxo-primario);
+}
+
+/* Foco só para quem navega pelo teclado */
+.uf--ativa:focus-visible{
+    stroke: var(--preto);
+    stroke-width: 3;
+}
+
+.pino{
+    fill: var(--branco);
+    stroke: var(--roxo-primario);
+    stroke-width: 0.18;
+    pointer-events: none;
+    transition: fill .2s ease;
+}
+
+.pino--marcado{
+    fill: var(--roxo-primario);
+    stroke: var(--branco);
+    stroke-width: 0.3;
+}
+
+/* Caixa de detalhes: altura do conteúdo, sem espaço sobrando */
+.mapaDetalhe{
+    padding: var(--space-5);
+    border-radius: var(--radius-card);
+    background-color: var(--background);
+    border-left: 4px solid var(--roxo-secundario);
+    animation: mapaDetalheEntra .15s ease;
+}
+
+@keyframes mapaDetalheEntra{
+    from{ opacity: 0; }
+    to{ opacity: 1; }
+}
+
+.mapaDetalhe h3{
+    margin-bottom: var(--space-1);
+}
+
+.mapaDetalhe > :last-child{
+    margin-bottom: 0;
+}
+
+.mapaSetor{
+    margin-bottom: var(--space-3);
+    font-weight: 700;
+    color: var(--roxo-primario);
+}
+
+.mapaDetalhe ul{
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    list-style: none;
+}
+
+.mapaDetalhe li{
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-pill);
+    background-color: var(--branco);
+    border: 1px solid var(--line);
+    font-size: var(--fs-small);
+}
+
+@media (prefers-reduced-motion: reduce){
+    .mapaDetalhe{ animation: none; }
+}

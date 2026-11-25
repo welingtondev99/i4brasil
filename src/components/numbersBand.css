@@ -1,0 +1,52 @@
+/* Faixa de números: objetiva, logo após a abertura */
+.faixaNumeros{
+    padding-block: var(--space-8);
+    background-color: var(--roxo-primario);
+    color: var(--branco);
+}
+
+.faixaLista{
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-6);
+    list-style: none;
+}
+
+.faixaLista li{
+    padding-left: var(--space-4);
+    border-left: 3px solid var(--cinza-claro);
+}
+
+.faixaLista strong{
+    display: block;
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: var(--fs-display);
+    line-height: 1;
+    letter-spacing: -0.01em;
+}
+
+.faixaLista span{
+    display: block;
+    margin-top: var(--space-2);
+    max-width: 22ch;
+    font-size: var(--fs-small);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    line-height: 1.35;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.88);
+}
+
+@media (max-width: 960px){
+    .faixaLista{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--space-6) var(--space-5);
+    }
+}
+
+@media (max-width: 400px){
+    .faixaLista strong{
+        font-size: 3rem;
+    }
+}

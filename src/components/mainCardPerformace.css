@@ -15,17 +15,17 @@
     padding: 0.5rem 0;
     font-size: 25px;
     font-weight: 700;
-    font-family: 'epilogue';
+    font-family: var(--font-body);
 }
 
 .caseMasterCard a {
     text-decoration: none;
     color: #000;
-    font-family: 'inter',sans-serif;
+    font-family: var(--font-body);
 }
 
 .nameCard span{
-    font-family: 'inter', sans-serif;
+    font-family: var(--font-body);
     font-size: 1.2rem;
     color: var(--roxo-primario);
 }

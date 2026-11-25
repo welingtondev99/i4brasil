@@ -1,0 +1,130 @@
+/* Fundo #000 igual ao fundo do vídeo, para o vídeo se fundir sem emenda */
+.intro{
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: grid;
+    place-items: center;
+    background-color: #000;
+    transition: transform .8s cubic-bezier(.7, 0, .2, 1);
+}
+
+/* a cortina sobe e revela o site */
+.intro--saindo{
+    transform: translateY(-100%);
+}
+
+/* ---------- Estilo "traço": contorno revelado, logo preenchida ---------- */
+.introMarca{
+    position: relative;
+    width: min(86vw, 64rem);
+    aspect-ratio: 2400 / 724;
+}
+
+.introMarca img{
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    user-select: none;
+}
+
+/* A máscara é 3x mais larga que a imagem; deslizar a posição varre a revelação da esquerda
+   para a direita. Antes de começar (posição 50%) nada aparece. */
+.introTraco{
+    -webkit-mask-image: linear-gradient(90deg, #000 0, #000 33.3%, transparent 34.6%);
+    mask-image: linear-gradient(90deg, #000 0, #000 33.3%, transparent 34.6%);
+    -webkit-mask-size: 300% 100%;
+    mask-size: 300% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: 50% 0;
+    mask-position: 50% 0;
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.35));
+    animation:
+        introRevela 2s cubic-bezier(.65, 0, .35, 1) .3s forwards,
+        introTracoSome .7s ease 2.6s forwards;
+}
+
+.introCheia{
+    opacity: 0;
+    animation: introCheiaEntra .9s ease 2.2s forwards;
+}
+
+@keyframes introRevela{
+    from{
+        -webkit-mask-position: 50% 0;
+        mask-position: 50% 0;
+    }
+    to{
+        -webkit-mask-position: 0% 0;
+        mask-position: 0% 0;
+    }
+}
+
+@keyframes introCheiaEntra{
+    to{ opacity: 1; }
+}
+
+@keyframes introTracoSome{
+    to{ opacity: 0; }
+}
+
+/* ---------- Estilo "vídeo" ---------- */
+/* O vídeo cobre a tela inteira. Guindastes e caminhão saem pelas bordas do quadro,
+   então, se ele ficasse só no centro, esses cortes apareceriam no meio da tela. */
+.introVideo{
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    pointer-events: none;
+}
+
+/* Telas mais quadradas que 3:2 (tablet, celular em pé): "cover" cortaria a logo dos lados
+   (a logo ocupa de 13% a 87% da largura do quadro). Aí o vídeo ocupa toda a largura,
+   centralizado, e as bordas de cima e de baixo se dissolvem em vez de terminar em corte seco. */
+@media (max-aspect-ratio: 3/2){
+    .introVideo{
+        object-fit: contain;
+        -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 14%, #000 86%, transparent 100%);
+        mask-image: linear-gradient(180deg, transparent 0, #000 14%, #000 86%, transparent 100%);
+    }
+}
+
+.introPular{
+    position: absolute;
+    right: var(--gutter);
+    bottom: var(--space-5);
+    height: var(--btn-sm);
+    padding-inline: var(--space-5);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: var(--radius-pill);
+    background: transparent;
+    font-family: var(--font-body);
+    font-size: var(--fs-small);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--branco);
+    cursor: pointer;
+    transition: background-color .2s ease, color .2s ease;
+}
+
+.introPular:hover{
+    background-color: var(--branco);
+    color: var(--preto);
+}
+
+.introPular:focus-visible{
+    outline: 3px solid var(--branco);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce){
+    .intro{ transition: none; }
+}

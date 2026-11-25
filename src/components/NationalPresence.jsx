@@ -1,52 +1,60 @@
-import mapa from '../images/brasil.svg'
-import arrowDonw from "../assets/ArrowArcRight.svg" 
 import TitleSection from './TitleSection'
 import Paragraph from './Paragraph'
 import CardPresenceNational from './CardPresenceNational'
-import imgCard from "../assets/eficiencia-energetica.svg"
+import PresenceMap from './PresenceMap'
+import PartnersCarousel from './PartnersCarousel'
 import marcas from '../data/partners'
+import usePresenca from '../data/usePresenca'
+import { icones } from '../data/states'
+import { estados } from '../data/brazilMap'
 import '../App.css'
-import './cardPresenceNational.css'
+import './nacionalPresence.css'
 import './partners.css'
 
-
-
-// const [logo, setLogo] = useState('')
+const nomeDoEstado = (uf) => estados.find((e) => e.uf === uf)?.nome ?? uf
 
 const NationalPresence = () => {
+  const { atuacoes } = usePresenca()
+  const destaques = atuacoes.filter((a) => a.setor)
+
   return (
-    <section className='container national'>
-        <div>
-            <TitleSection title={"Quem confia na i4 Brasil"}/>
-            <div>
-                <div className='designPartnes'>
-                   {marcas.map((imagem, index)=>(
-                        <img className='default' key={index} src={imagem} width={'150px'} alt="logo do municipio" />
-                   ))}
-                </div>
-            </div>
+    <>
+      <section className="section secaoParceiros">
+        <div className="container">
+          <TitleSection title="Quem confia na i4 Brasil" />
+          <PartnersCarousel marcas={marcas} />
+        </div>
+      </section>
+
+      <section id="presenca" className="section secaoPresenca">
+        <div className="container presenca">
+          <div className="presencaTexto">
+            <TitleSection title="Nossa presença nacional" />
+            <p className="lead">Projetos que transformam cidades e impulsionam o futuro.</p>
+
+            <Paragraph texts="Atuamos em todo o território nacional, com projetos em setores estratégicos como cidades inteligentes, segurança pública, saneamento e eficiência energética, sempre com soluções integradas de tecnologia e gestão adaptadas ao desafio local." />
+          </div>
+
+          <PresenceMap atuacoes={atuacoes} />
         </div>
 
-        <div className='org'>
-            <TitleSection title={"Nossa presença nacional"}/>
-            <div>
-                <Paragraph texts={"Projetos que transformam cidades e impulsionam o futuro"}/>
-                <Paragraph texts={"Atuamos em todo o território nacional, com projetos em setores estratégicos como cidades inteligentes, segurança pública, saneamento e eficiência energética — sempre com soluções integradas de tecnologia e gestão adaptadas ao desafio local."}/>
-                <Paragraph texts={"Alguns dos estados em que já atuamos"}/>
-                <img className='arrowDonw' src={arrowDonw} alt="" />
-                <div className='alingCardNational'>
-                    <CardPresenceNational image={imgCard} title={"Roraima (RR)"} text={"Eficiência energêtica e PPPs municipais"}/>
-                    <CardPresenceNational image={imgCard} title={"Roraima (RR)"} text={"Eficiência energêtica e PPPs municipais"}/>
-                    <CardPresenceNational image={imgCard} title={"Roraima (RR)"} text={"Eficiência energêtica e PPPs municipais"}/>
-                    <CardPresenceNational image={imgCard} title={"Roraima (RR)"} text={"Eficiência energêtica e PPPs municipais"}/>
-                    <CardPresenceNational image={imgCard} title={"Roraima (RR)"} text={"Eficiência energêtica e PPPs municipais"}/>
-                </div>
+        {destaques.length > 0 && (
+          <div className="container presencaDestaques">
+            <h3>Alguns dos estados em que já atuamos</h3>
+            <div className="alingCardNational">
+              {destaques.map((a) => (
+                <CardPresenceNational
+                  key={a.uf}
+                  image={icones[a.icone] ?? icones.concessoes}
+                  title={`${nomeDoEstado(a.uf)} (${a.uf})`}
+                  text={a.setor}
+                />
+              ))}
             </div>
-            <div className='desingDivImageMap'>
-                <img className='imageMap' src={mapa} alt="" />
-            </div>
-        </div>
-    </section>
+          </div>
+        )}
+      </section>
+    </>
   )
 }
 

@@ -1,25 +1,30 @@
 import Header from './components/Header'
-import Home from './components/Home'
+import IntroLoader from './components/IntroLoader'
+import CinematicHero from './components/CinematicHero'
+import NumbersBand from './components/NumbersBand'
+import AboutSection from './components/AboutSection'
 import NationalPresence from './components/NationalPresence'
-import './App.css'
-import './components/home.css'
+import OdsSection from './components/OdsSection'
+import RecognitionSection from './components/RecognitionSection'
+import LocationSection from './components/LocationSection'
 import Footer from './components/Footer'
-
+import './App.css'
 
 function App() {
-  
-
   return (
     <>
-      <Header/>
-      <section id="center">
-        <Home/>
-      </section>
-      <section className='desingCenter'>
-        <NationalPresence/>
-      </section>
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+      <IntroLoader />
+      <Header />
+      <main>
+        <CinematicHero />
+        <NumbersBand />
+        <AboutSection />
+        <NationalPresence />
+        <OdsSection />
+        <RecognitionSection />
+        <LocationSection />
+      </main>
+      <Footer />
     </>
   )
 }

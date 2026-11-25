@@ -1,29 +1,98 @@
-.buttonEl{
-    padding: 1rem;
-    border-radius: 45px;
-    border: none;
-    width: 100%;      
-    max-width: 250px; 
-    height: 60px;
-    font-family: 'inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 800;
+/* Botão padrão: três tamanhos (sm 40 · md 48 · lg 56px), formato pílula.
+   O tamanho vem dos tokens --btn-*; não defina altura nos componentes. */
+.buttonEl,
+.styleButtonPages,
+.btn{
+    --btn-h: var(--btn-md);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    height: var(--btn-h);
+    min-width: 11rem;
+    padding-inline: var(--space-6);
+    border-radius: var(--radius-pill);
+    border: 2px solid transparent;
+    font-family: var(--font-body);
+    font-size: var(--fs-body);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
     cursor: pointer;
-    margin-bottom: 2rem;
+    transition: background-color .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
 }
 
+.btn--sm{ --btn-h: var(--btn-sm); min-width: 9rem; padding-inline: var(--space-5); font-size: var(--fs-small); }
+.btn--md{ --btn-h: var(--btn-md); }
+.btn--lg{ --btn-h: var(--btn-lg); min-width: 14rem; }
+
+.buttonEl:focus-visible,
+.styleButtonPages:focus-visible,
+.btn:focus-visible{
+    outline: 3px solid var(--roxo-secundario);
+    outline-offset: 3px;
+}
+
+.btn--inverso:focus-visible,
+.btn--outline:focus-visible{
+    outline-color: var(--branco);
+}
+
+.buttonEl:disabled{
+    opacity: .6;
+    cursor: not-allowed;
+}
+
+/* Páginas internas (fundo claro) */
 .styleButtonPages{
-    padding: 1rem;
-    border-radius: 45px;
-    border: none;
-    width: 100%;      
-    max-width: 250px; 
-    height: 60px;
-    font-family: 'inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 800;
-    cursor: pointer;
-    margin-bottom: 2rem;
     background-color: var(--roxo-primario);
-    color: #fff;
+    color: var(--branco);
+}
+.styleButtonPages:hover{
+    background-color: var(--roxo-secundario);
+}
+
+/* Principal (fundo claro): roxo com texto branco; hover em violeta secundário */
+.btn--primary{
+    background-color: var(--roxo-primario);
+    color: var(--branco);
+}
+.btn--primary:hover{
+    background-color: var(--roxo-secundario);
+    transform: translateY(-2px);
+}
+
+/* Sobre fundo roxo ou escuro: botão branco com texto roxo */
+.btn--inverso{
+    background-color: var(--branco);
+    color: var(--roxo-primario);
+}
+.btn--inverso:hover{
+    background-color: var(--cinza-claro);
+    transform: translateY(-2px);
+}
+
+.btn--outline{
+    background-color: transparent;
+    color: var(--branco);
+    border-color: var(--branco);
+}
+.btn--outline:hover{
+    background-color: var(--branco);
+    color: var(--roxo-primario);
+    transform: translateY(-2px);
+}
+
+.btnGroup{
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+}
+
+@media (max-width: 640px){
+    .btnGroup{ flex-direction: column; align-items: stretch; width: 100%; }
+    .btn{ width: 100%; }
 }

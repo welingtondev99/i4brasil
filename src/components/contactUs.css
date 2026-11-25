@@ -10,13 +10,13 @@
 
 .styleContactUs label{
     color: #fff;
-    font-family: 'epilogue';
+    font-family: var(--font-body);
 }
 
 .styleContactUs select{
     display: flex;
     margin: 1rem 0;
-    font-family: "epilogue";
+    font-family: var(--font-body);
     padding: 5px;
     outline: none;
     width: 100%;
@@ -54,20 +54,20 @@
 .red{
     color: rgb(255, 65, 65) !important;
     letter-spacing: 3px;
-    font-family: 'inter', sans-serif;
+    font-family: var(--font-body);
     font-weight: 500;
 }
 .green{
     color: rgb(46, 229, 157) !important;
     letter-spacing: 3px;
-    font-family: 'inter', sans-serif;
+    font-family: var(--font-body);
     font-weight: 500;
    
 }
 .orange{
     color: rgba(251, 141, 32, 0.842) !important;
     letter-spacing: 3px;
-    font-family: 'inter', sans-serif;
+    font-family: var(--font-body);
     font-weight: 500;
    
 }
