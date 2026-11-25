@@ -12,45 +12,52 @@ import Insights from './pages/Insights.jsx';
 import { EstudosUseState } from './pages/EstudosUseState.jsx';
 import ContactUs from './pages/ContactUs.jsx';
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <App/>, // Sua página principal (Home)
+    },
+    {
+      path: "/termos-de-uso",
+      element: <TermsOfUse/>, 
+    },
+    {
+      path: "/Politica-de-privacidade",
+      element: <PrivacyPolicy/>
+    },
+    {
+      path: "/areas-de-atuacao",
+      element: <AreasOfPractice/>
+    },
+    {
+      path: "/equipe",
+      element: <Team/>
+    },
+    // home
+    {
+      path: "/frentes",
+      element: <AreasOfActivity/>
+    },
+    {
+      path: "/insights",
+      element: <Insights/>
+    },
+    {
+      path: '/estudos',
+      element: <EstudosUseState/>
+    },
+    {
+      path: '/contato',
+      element: <ContactUs/>
+    },
+  ],
   {
-    path: "/",
-    element: <App/>, // Sua página principal (Home)
-  },
-  {
-    path: "/termos-de-uso",
-    element: <TermsOfUse/>, // A página que você quer visualizar
-  },
-  {
-    path: "/Politica-de-privacidade",
-    element: <PrivacyPolicy/>
-  },
-  {
-    path: "/areas-de-atuacao",
-    element: <AreasOfPractice/>
-  },
-  {
-    path: "/equipe",
-    element: <Team/>
-  },
-  // home
-  {
-    path: "/frentes",
-    element: <AreasOfActivity/>
-  },
-  {
-    path: "/insights",
-    element: <Insights/>
-  },
-  {
-    path:'/estudos',
-    element: <EstudosUseState/>
-  },
-  {
-    path:'/contato',
-    element: <ContactUs/>
-  },
-]);
+    // O import.meta.env.BASE_URL lê o atributo 'base' do vite.config.js
+    // Localmente será "/" e no GitHub Pages será "/i4brasil/"
+    basename: import.meta.env.BASE_URL,
+  }
+);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
