@@ -35,7 +35,7 @@ const ROTAS = [
 ]
 const NOS = [[300, 430], [340, 350], [880, 250], [860, 350], [120, 70], [600, 90], [1080, 640], [600, 610]]
 
-const DURACAO_TRACO = 2900 // ms até a saída começar (estilos 'traco' e 'cidade')
+const DURACAO_TRACO = 2600 // ms até a saída começar (estilos 'traco' e 'cidade')
 const VIDEO = publico('video/abertura-logo.mp4')
 const POSTER = publico('video/abertura-logo.jpg')
 const FIM_ANTECIPADO = 0.5 // estilo 'video': a cortina começa meio segundo antes do fim
