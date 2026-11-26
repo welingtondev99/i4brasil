@@ -1,4 +1,4 @@
-/* Fundo #000 igual ao fundo do vídeo, para o vídeo se fundir sem emenda */
+/* Fundo preto da abertura de traço; a de cidade troca para branco */
 .intro{
     position: fixed;
     inset: 0;
@@ -248,31 +248,6 @@
 
 @keyframes introTracoSome{
     to{ opacity: 0; }
-}
-
-/* ---------- Estilo "vídeo" ---------- */
-/* O vídeo cobre a tela inteira. Guindastes e caminhão saem pelas bordas do quadro,
-   então, se ele ficasse só no centro, esses cortes apareceriam no meio da tela. */
-.introVideo{
-    position: absolute;
-    inset: 0;
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    pointer-events: none;
-}
-
-/* Telas mais quadradas que 3:2 (tablet, celular em pé): "cover" cortaria a logo dos lados
-   (a logo ocupa de 13% a 87% da largura do quadro). Aí o vídeo ocupa toda a largura,
-   centralizado, e as bordas de cima e de baixo se dissolvem em vez de terminar em corte seco. */
-@media (max-aspect-ratio: 3/2){
-    .introVideo{
-        object-fit: contain;
-        -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 14%, #000 86%, transparent 100%);
-        mask-image: linear-gradient(180deg, transparent 0, #000 14%, #000 86%, transparent 100%);
-    }
 }
 
 .introPular{

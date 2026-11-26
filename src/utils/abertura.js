@@ -3,7 +3,6 @@ const CHAVE = 'i4-abertura'
 export const ABERTURAS = [
   { id: 'cidade', nome: 'Cidade na logo' },
   { id: 'traco', nome: 'Traço da logo' },
-  { id: 'video', nome: 'Vídeo da obra' },
   { id: 'nenhuma', nome: 'Sem abertura' },
 ]
 export const ABERTURA_PADRAO = 'cidade'
