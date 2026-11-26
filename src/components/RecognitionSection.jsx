@@ -1,10 +1,13 @@
 import { reconhecimento as r } from '../data/site'
 import TitleSection from './TitleSection'
+import medalha from '../images/icones/reconhecimento.webp'
 import './sections.css'
 
-// Os números formam um funil (180 → 69 → 7): a barra de cada linha é proporcional ao maior valor
-const maior = Math.max(...r.numeros.map((n) => parseInt(n.valor, 10)))
-const largura = (valor) => Math.max(4, Math.round((parseInt(valor, 10) / maior) * 100))
+// Números do fórum: [0] iniciativas inscritas, [1] selecionadas, [2] eram da i4.
+// A ideia é mostrar prestígio: dos 69 projetos escolhidos no mundo, 7 eram da i4 (cada ponto é um projeto).
+const [inscritas, selecionadas, nossas] = r.numeros
+const totalSelecionadas = parseInt(selecionadas.valor, 10)
+const totalNossas = parseInt(nossas.valor, 10)
 
 const RecognitionSection = () => {
   return (
@@ -17,19 +20,33 @@ const RecognitionSection = () => {
           <p className="reconhecimentoDestaque">{r.destaque}</p>
         </div>
 
-        <ul className="reconhecimentoNumeros">
-          {r.numeros.map((n, i) => (
-            <li key={n.rotulo} className={i === r.numeros.length - 1 ? 'reconhecimentoFinal' : ''}>
-              <div className="reconhecimentoLinha">
-                <strong>{n.valor}</strong>
-                <span>{n.rotulo}</span>
-              </div>
-              <div className="reconhecimentoBarra" aria-hidden="true">
-                <i style={{ width: `${largura(n.valor)}%` }} />
-              </div>
-            </li>
-          ))}
-        </ul>
+        <div className="reconhecimentoPainel">
+          <img className="reconhecimentoMedalha" src={medalha} alt="" />
+          <p className="reconhecimentoChamada">
+            <strong>{nossas.valor}</strong>
+            <span>
+              dos <b>{selecionadas.valor}</b> projetos escolhidos no mundo eram da i4 Brasil
+            </span>
+          </p>
+
+          <ul
+            className="reconhecimentoPontos"
+            role="img"
+            aria-label={`${nossas.valor} de ${selecionadas.valor} projetos selecionados eram da i4 Brasil`}
+          >
+            {Array.from({ length: totalSelecionadas }, (_, i) => (
+              <li key={i} className={i < totalNossas ? 'reconhecimentoPonto--i4' : ''} />
+            ))}
+          </ul>
+
+          <p className="reconhecimentoLegenda">
+            <span><i className="legendaI4" /> Projetos da i4 Brasil</span>
+            <span><i /> Demais selecionados</span>
+          </p>
+          <p className="reconhecimentoNota">
+            {selecionadas.valor} selecionados entre {inscritas.valor} {inscritas.rotulo}.
+          </p>
+        </div>
       </div>
     </section>
   )

@@ -166,63 +166,103 @@ main + footer.rodape{
     color: var(--roxo-primario);
 }
 
-.reconhecimentoNumeros{
-    display: grid;
-    gap: var(--space-5);
-    list-style: none;
+.reconhecimentoPainel{
+    position: relative;
     padding: var(--space-6);
     background-color: var(--roxo-primario);
     border-radius: var(--radius-card);
     color: var(--branco);
 }
 
-.reconhecimentoLinha{
-    display: flex;
-    align-items: baseline;
-    gap: var(--space-4);
+/* medalha em um círculo branco, no canto do painel */
+.reconhecimentoMedalha{
+    position: absolute;
+    top: var(--space-5);
+    right: var(--space-5);
+    width: 3.5rem;
+    height: 3.5rem;
+    padding: 0.4rem;
+    border-radius: 50%;
+    background-color: var(--branco);
+    object-fit: contain;
 }
 
-.reconhecimentoNumeros strong{
-    flex: none;
-    min-width: 5.5rem;
-    font-family: var(--font-title);
-    font-weight: 700;
-    font-size: var(--fs-display);
-    line-height: 0.9;
+.reconhecimentoChamada{
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    max-width: calc(100% - 4.5rem);
+    margin-bottom: var(--space-5);
     color: var(--branco);
 }
 
-.reconhecimentoNumeros span{
-    font-size: var(--fs-body);
-    line-height: 1.3;
+.reconhecimentoChamada strong{
+    flex: none;
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: clamp(4.5rem, 3rem + 6vw, 7rem);
+    line-height: 0.85;
+    color: var(--branco);
+}
+
+.reconhecimentoChamada span{
+    font-size: var(--fs-lead);
+    line-height: 1.25;
+    color: rgba(255, 255, 255, 0.92);
+}
+
+/* 69 pontos, um por projeto selecionado; os 7 da i4 em branco brilhante */
+.reconhecimentoPontos{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(1.1rem, 1fr));
+    gap: 0.6rem;
+    list-style: none;
+}
+
+.reconhecimentoPontos li{
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.reconhecimentoPontos .reconhecimentoPonto--i4{
+    background-color: var(--branco);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25), 0 0 14px rgba(255, 255, 255, 0.55);
+}
+
+.reconhecimentoLegenda{
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-5);
+    max-width: none;
+    margin: var(--space-5) 0 var(--space-2);
+    font-size: var(--fs-small);
     color: rgba(255, 255, 255, 0.88);
 }
 
-/* barra proporcional: mostra o funil das 180 iniciativas até as 7 da i4 */
-.reconhecimentoBarra{
-    height: 0.5rem;
-    margin-top: var(--space-3);
-    border-radius: var(--radius-pill);
-    background-color: rgba(255, 255, 255, 0.14);
-    overflow: hidden;
+.reconhecimentoLegenda span{
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
 }
 
-.reconhecimentoBarra i{
-    display: block;
-    height: 100%;
-    border-radius: inherit;
-    background-color: rgba(255, 255, 255, 0.55);
+.reconhecimentoLegenda i{
+    display: inline-block;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* a última linha (as da i4) ganha destaque */
-.reconhecimentoFinal strong,
-.reconhecimentoFinal span{
-    color: var(--branco);
-    font-weight: 700;
-}
-
-.reconhecimentoFinal .reconhecimentoBarra i{
+.reconhecimentoLegenda i.legendaI4{
     background-color: var(--branco);
+}
+
+.reconhecimentoNota{
+    max-width: none;
+    margin: 0;
+    font-size: var(--fs-small);
+    color: rgba(255, 255, 255, 0.7);
 }
 
 /* =========== Onde nos encontrar =========== */
@@ -364,10 +404,16 @@ main + footer.rodape{
         font-size: 0.5rem;
         line-height: 1.1;
     }
-    .reconhecimentoNumeros{
+    .reconhecimentoPainel{
         padding: var(--space-5);
     }
-    .reconhecimentoNumeros strong{
-        min-width: 4.25rem;
+    .reconhecimentoMedalha{
+        top: var(--space-4);
+        right: var(--space-4);
+        width: 3rem;
+        height: 3rem;
+    }
+    .reconhecimentoPontos{
+        gap: 0.45rem;
     }
 }
