@@ -108,7 +108,7 @@
     outline-offset: 2px;
 }
 
-/* Botão de menu (celular e tablet) */
+/* Botão de menu (celular e tablet): círculo com três barras que viram um X */
 .toogleButton{
     display: none;
     flex: none;
@@ -122,21 +122,56 @@
     background: transparent;
     color: var(--branco);
     cursor: pointer;
-    transition: background-color .2s ease;
+    transition: background-color .25s ease, border-color .25s ease, color .25s ease;
 }
 
 .toogleButton:hover{
     background-color: rgba(255, 255, 255, 0.12);
 }
 
-/* Painel do menu: largura total, logo abaixo da barra */
+/* aberto: círculo branco com o X em roxo */
+.toogleButton[aria-expanded='true']{
+    background-color: var(--branco);
+    border-color: var(--branco);
+    color: var(--roxo-primario);
+}
+
+.menuBarras{
+    position: relative;
+    display: block;
+    width: 1.25rem;
+    height: 0.875rem;
+}
+
+.menuBarras span{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+    background-color: currentColor;
+    transition: transform .3s cubic-bezier(.4, 0, .2, 1), opacity .2s ease, top .3s cubic-bezier(.4, 0, .2, 1), width .3s ease;
+}
+
+.menuBarras span:nth-child(1){ top: 0; }
+.menuBarras span:nth-child(2){ top: calc(50% - 1px); width: 70%; left: 30%; } /* barra do meio mais curta, à direita */
+.menuBarras span:nth-child(3){ top: calc(100% - 2px); }
+
+.menuBarras--aberto span:nth-child(1){ top: calc(50% - 1px); transform: rotate(45deg); }
+.menuBarras--aberto span:nth-child(2){ opacity: 0; transform: translateX(8px); }
+.menuBarras--aberto span:nth-child(3){ top: calc(50% - 1px); transform: rotate(-45deg); }
+
+/* Painel do menu: largura total, logo abaixo da barra, abre deslizando */
 .menuMovel{
     position: absolute;
     top: 100%;
     left: 0;
     right: 0;
-    background-color: rgba(11, 11, 15, 0.97);
+    max-height: calc(100vh - var(--header-bar));
+    overflow-y: auto;
+    background-color: var(--preto);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    animation: menuAbre .3s cubic-bezier(.2, .7, .2, 1) both;
 }
 
 .menuMovelLista{
@@ -144,25 +179,72 @@
     padding-block: var(--space-3) var(--space-5);
 }
 
+/* itens entram um depois do outro */
+.menuMovelLista > *{
+    animation: menuItem .4s cubic-bezier(.2, .7, .2, 1) both;
+}
+.menuMovelLista > :nth-child(1){ animation-delay: .06s; }
+.menuMovelLista > :nth-child(2){ animation-delay: .1s; }
+.menuMovelLista > :nth-child(3){ animation-delay: .14s; }
+.menuMovelLista > :nth-child(4){ animation-delay: .18s; }
+.menuMovelLista > :nth-child(5){ animation-delay: .22s; }
+.menuMovelLista > :nth-child(6){ animation-delay: .26s; }
+
 .menuMovel a:not(.btn){
     display: flex;
     align-items: center;
-    min-height: var(--btn-md);
+    justify-content: space-between;
+    min-height: var(--btn-lg);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     font-weight: 700;
     letter-spacing: 0.08em;
     color: rgba(255, 255, 255, 0.88);
+    transition: color .2s ease, padding-left .2s ease;
+}
+
+/* setinha à direita de cada item */
+.menuMovel a:not(.btn)::after{
+    content: '';
+    width: 0.5rem;
+    height: 0.5rem;
+    border-top: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    transform: rotate(45deg);
+    opacity: 0.5;
+    transition: transform .2s ease, opacity .2s ease;
 }
 
 .menuMovel a:not(.btn):hover,
 .menuMovel a[aria-current='true']{
     color: var(--branco);
+    padding-left: var(--space-2);
+}
+
+.menuMovel a:not(.btn):hover::after,
+.menuMovel a[aria-current='true']::after{
+    opacity: 1;
+    transform: translateX(3px) rotate(45deg);
 }
 
 .menuMovel .menuContato{
     width: 100%;
     margin-top: var(--space-4);
+}
+
+@keyframes menuAbre{
+    from{ opacity: 0; transform: translateY(-8px); }
+    to{ opacity: 1; transform: none; }
+}
+
+@keyframes menuItem{
+    from{ opacity: 0; transform: translateY(-6px); }
+    to{ opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce){
+    .menuMovel,
+    .menuMovelLista > *{ animation: none; }
 }
 
 @media (max-width: 1180px){
