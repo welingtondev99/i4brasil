@@ -5,6 +5,7 @@ import cheia from '../images/logo-i4-intro-cheia.webp'
 import fotoCidade from '../images/hero-municipio.avif'
 import fotoCidadeMobile from '../images/hero-municipio-mobile.webp'
 import { lerAbertura } from '../utils/abertura'
+import IntroPlanta from './IntroPlanta'
 import './introLoader.css'
 
 // Abertura do site com a logo. Três estilos:
@@ -24,19 +25,8 @@ const TIPO = lerAbertura()
 const MOSTRAR_SEMPRE = import.meta.env.DEV
 const CHAVE = 'i4-intro-vista'
 
-// Planta técnica que se desenha atrás da logo: malha, rotas (adutora, rodovia, ferrovia) e nós.
-const GRADE_X = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100]
-const GRADE_Y = [100, 200, 300, 400, 500, 600]
-// as rotas chegam ao anel em volta da logo, sem cruzar as letras
-const ROTAS = [
-  { pontos: '0,520 220,520 300,430 340,350', atraso: 0.3 },
-  { pontos: '1200,160 960,160 880,250 860,350', atraso: 0.5 },
-  { pontos: '120,0 120,70 600,70 600,90', atraso: 0.7 },
-  { pontos: '1080,700 1080,640 600,640 600,610', atraso: 0.9 },
-]
-const NOS = [[300, 430], [340, 350], [880, 250], [860, 350], [120, 70], [600, 90], [1080, 640], [600, 610]]
-
-const DURACAO_TRACO = 2600 // ms até a saída começar
+// ms até a saída começar (a abertura da cidade é mais curta que as de traço)
+const DURACAO = { cidade: 2600, traco: 3900, planta: 3900 }
 const LIMITE_SEGURANCA = 12000 // nunca prende o visitante mais que isso
 
 let jaMostrada = false
@@ -80,7 +70,7 @@ const IntroLoader = () => {
     if (fase !== 'entrando') return
 
     const trava = setTimeout(() => { motivo('limite de segurança'); sair() }, LIMITE_SEGURANCA)
-    const fim = setTimeout(sair, DURACAO_TRACO)
+    const fim = setTimeout(sair, DURACAO[TIPO] ?? 3900)
     return () => { clearTimeout(trava); clearTimeout(fim) }
   }, [fase, sair])
 
@@ -106,25 +96,7 @@ const IntroLoader = () => {
         </div>
       ) : (
         <>
-        {TIPO === 'planta' && (
-        <svg className="introPlanta" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <g className="introGrade">
-            {GRADE_X.map((x, i) => (
-              <line key={`x${x}`} x1={x} y1="0" x2={x} y2="700" pathLength="1" style={{ '--d': `${i * 0.05}s` }} />
-            ))}
-            {GRADE_Y.map((y, i) => (
-              <line key={`y${y}`} x1="0" y1={y} x2="1200" y2={y} pathLength="1" style={{ '--d': `${i * 0.07}s` }} />
-            ))}
-          </g>
-          <circle className="introAnel" cx="600" cy="350" r="260" pathLength="1" />
-          {ROTAS.map((r, i) => (
-            <polyline key={i} className="introRota" points={r.pontos} pathLength="1" style={{ '--d': `${r.atraso}s` }} />
-          ))}
-          {NOS.map(([x, y], i) => (
-            <circle key={i} className="introNo" cx={x} cy={y} r="5" style={{ '--d': `${0.9 + i * 0.12}s` }} />
-          ))}
-        </svg>
-        )}
+        {TIPO === 'planta' && <IntroPlanta />}
         <div className="introMarca" aria-hidden="true">
           <picture>
             <source media="(max-width: 640px)" srcSet={tracoMobile} />

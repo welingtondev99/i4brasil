@@ -125,60 +125,48 @@
     }
 }
 
-/* ---------- Planta técnica atrás da logo ---------- */
+/* ---------- Planta técnica atrás da logo (IntroPlanta.jsx) ---------- */
 .introPlanta{
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     fill: none;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    animation: introPlantaSome .8s ease 3s forwards;
+    stroke: var(--cinza-claro);
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    animation: introPlantaSome .7s ease 3.2s forwards;
 }
 
-.introPlanta line,
-.introPlanta polyline,
-.introAnel{
+/* todo traço nasce vazio (sem pontos na tela) e é desenhado a partir da sua origem */
+.introTr{
     stroke-dasharray: 1;
     stroke-dashoffset: 1;
-    animation: introDesenha 1.4s cubic-bezier(.65, 0, .35, 1) var(--d, 0s) forwards;
+    animation: introDesenha var(--t, 1.2s) cubic-bezier(.65, 0, .35, 1) var(--d, 0s) forwards;
 }
 
-/* malha fina de fundo */
-.introGrade line{
-    stroke: var(--roxo-claro);
-    stroke-width: 1;
-    opacity: 0.55;
-    vector-effect: non-scaling-stroke;
-}
+.introGrade .introTr{ stroke-width: 1; opacity: 0.16; }
+.introRota{ stroke-width: 1.5; opacity: 0.8; }
+.introCota .introTr{ stroke-width: 1; opacity: 0.55; }
+.introMoldura .introTr{ stroke: var(--branco); stroke-width: 2; }
 
-/* anel em volta da logo */
-.introAnel{
-    stroke: var(--cinza-claro);
-    stroke-width: 1;
-    opacity: 0.35;
-    stroke-dasharray: 1;
-    animation-delay: .6s;
-    animation-duration: 2s;
-    vector-effect: non-scaling-stroke;
-}
-
-/* rotas que convergem para o centro */
-.introRota{
-    stroke: var(--cinza-claro);
-    stroke-width: 2;
-    opacity: 0.8;
-    vector-effect: non-scaling-stroke;
-}
-
-/* nós nos pontos de virada */
 .introNo{
-    fill: var(--cinza-claro);
+    fill: var(--branco);
     transform-box: fill-box;
     transform-origin: center;
     transform: scale(0);
     animation: introNoEntra .4s cubic-bezier(.3, 1.6, .5, 1) var(--d, 0s) forwards;
+}
+
+.introTexto{
+    fill: var(--cinza-claro);
+    stroke: none;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    opacity: 0;
+    animation: introTextoEntra .6s ease var(--d, 0s) forwards;
 }
 
 @keyframes introDesenha{
@@ -187,6 +175,10 @@
 
 @keyframes introNoEntra{
     to{ transform: scale(1); }
+}
+
+@keyframes introTextoEntra{
+    to{ opacity: 0.7; }
 }
 
 @keyframes introPlantaSome{
