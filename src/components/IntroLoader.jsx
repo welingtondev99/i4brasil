@@ -5,15 +5,17 @@ import cheia from '../images/logo-i4-intro-cheia.webp'
 import fotoCidade from '../images/hero-municipio.avif'
 import fotoCidadeMobile from '../images/hero-municipio-mobile.webp'
 import { publico } from '../utils/publico'
+import { lerAbertura } from '../utils/abertura'
 import './introLoader.css'
 
 // Abertura do site com a logo. Três estilos:
-//  - 'cidade': a foto da cidade aparece dentro das letras da logo, que depois cresce até
-//    ocupar a tela e revela o site (feito em código, usa a mesma foto do hero);
+//  - 'cidade': a foto da cidade aparece dentro das letras da logo, que depois sobe e some,
+//    revelando o site (feito em código, usa a mesma foto do hero);
 //  - 'traco': o contorno da logo é revelado em linha fina, a logo se preenche de branco e a
 //    cortina sobe (feito em código, leve e nítido em qualquer tela);
 //  - 'video': animação da equipe de obra montando a logo (public/video/abertura-logo.mp4).
-const TIPO = 'cidade'
+// A escolha vem do botão "Abertura" (utils/abertura.js); o padrão é 'cidade'.
+const TIPO = lerAbertura()
 
 // Quando aparece:
 //  - desenvolvimento: a cada carregamento/recarga da página, para poder revisar;
@@ -56,7 +58,7 @@ const vistaNaSessao = () => {
 const IntroLoader = () => {
   const reduzido = window.matchMedia('(prefers-reduced-motion: reduce)').matches
   const [fase, setFase] = useState(() => {
-    if (reduzido || jaMostrada) return 'fim'
+    if (reduzido || jaMostrada || TIPO === 'nenhuma') return 'fim'
     if (!MOSTRAR_SEMPRE && vistaNaSessao()) return 'fim'
     return 'entrando'
   })

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import LinkRota from './LinkRota'
 import TemaToggle from './TemaToggle'
+import AberturaToggle from './AberturaToggle'
 import './header.css'
 import './button.css'
 import '../App.css'
@@ -85,6 +86,7 @@ const Header = () => {
   return (
     <>
     <TemaToggle />
+    <AberturaToggle />
     <header className={`navegation ${transparente ? 'navegation--topo' : ''}`}>
       <div className='container navInterna'>
         <Link className='logoLink' to='/' aria-label='i4 Brasil, página inicial'>

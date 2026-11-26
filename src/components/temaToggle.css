@@ -68,3 +68,15 @@
         font-size: 0.72rem;
     }
 }
+
+/* Botão de escolher a abertura: fica logo acima do botão de tema */
+.aberturaToggle{
+    bottom: calc(var(--space-4) + 2.5rem + var(--space-2));
+    padding-inline: var(--space-4);
+}
+
+@media (max-width: 640px){
+    .aberturaToggle{
+        bottom: calc(var(--space-3) + 2.25rem + var(--space-2));
+    }
+}
