@@ -80,7 +80,7 @@
     outline-color: var(--roxo-primario);
 }
 
-/* saída: a logo cresce um pouco e tudo se dissolve sobre o site.
+/* saída: a logo sobe um pouco e some enquanto o fundo se dissolve sobre o site.
    Só transform e opacity (rodam na GPU), com curva suave e sem salto. */
 .intro--cidade{
     will-change: opacity;
@@ -93,12 +93,12 @@
 .intro--cidade.intro--saindo{
     transform: none;
     opacity: 0;
-    transition: opacity .8s cubic-bezier(.4, 0, .2, 1);
+    transition: opacity .8s ease .1s;
 }
 
 .intro--cidade.intro--saindo .introCidade{
     animation: none;
-    transform: scale(2.6);
+    transform: translateY(-8vh);
     opacity: 0;
     transition: transform .8s cubic-bezier(.4, 0, .2, 1), opacity .6s ease;
 }
@@ -123,52 +123,6 @@
         background-size: 100% auto;
         background-position: 50% 60%;
     }
-}
-
-/* ---------- Formas de fechar (comparação: ?saida=cortina | iris | sobe) ---------- */
-/* cortina: o painel branco sobe e revela o site */
-.intro--cidade.intro--saida-cortina.intro--saindo{
-    opacity: 1;
-    transform: translateY(-100%);
-    transition: transform .85s cubic-bezier(.7, 0, .2, 1);
-}
-.intro--cidade.intro--saida-cortina.intro--saindo .introCidade{
-    transform: translateY(-12vh);
-    opacity: 1;
-    transition: transform .85s cubic-bezier(.7, 0, .2, 1);
-}
-
-/* iris: um círculo se abre no centro, a partir da logo, revelando o site */
-@property --raio{
-    syntax: '<percentage>';
-    inherits: false;
-    initial-value: 0%;
-}
-.intro--cidade.intro--saida-iris.intro--saindo{
-    opacity: 1;
-    transition: none;
-    -webkit-mask-image: radial-gradient(circle at 50% 50%, transparent var(--raio), #000 calc(var(--raio) + 1%));
-    mask-image: radial-gradient(circle at 50% 50%, transparent var(--raio), #000 calc(var(--raio) + 1%));
-    animation: introIris .9s cubic-bezier(.6, 0, .3, 1) forwards;
-}
-.intro--cidade.intro--saida-iris.intro--saindo .introCidade{
-    transform: scale(1.15);
-    opacity: 0;
-    transition: transform .5s ease, opacity .4s ease;
-}
-@keyframes introIris{
-    to{ --raio: 85%; }
-}
-
-/* sobe: a logo sobe e some, o fundo se dissolve, mais calmo e sem ampliar */
-.intro--cidade.intro--saida-sobe.intro--saindo{
-    opacity: 0;
-    transition: opacity .8s ease .1s;
-}
-.intro--cidade.intro--saida-sobe.intro--saindo .introCidade{
-    transform: translateY(-8vh);
-    opacity: 0;
-    transition: transform .8s cubic-bezier(.4, 0, .2, 1), opacity .6s ease;
 }
 
 /* ---------- Planta técnica atrás da logo ---------- */
