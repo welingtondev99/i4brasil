@@ -92,9 +92,12 @@ main + footer.rodape{
 
 .odsLayout{
     display: grid;
-    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-    gap: var(--space-8);
-    align-items: center;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-7);
+}
+
+.odsTexto{
+    max-width: 52rem;
 }
 
 .odsTexto h2,
@@ -110,10 +113,11 @@ main + footer.rodape{
     margin-top: var(--space-4);
 }
 
+/* Os 18 ODS em cartões grandes, com o nome legível (a grade ocupa a largura toda) */
 .odsGrade{
     display: grid;
     grid-template-columns: repeat(6, minmax(0, 1fr));
-    gap: var(--space-2);
+    gap: var(--space-3);
     list-style: none;
 }
 
@@ -121,14 +125,18 @@ main + footer.rodape{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: var(--space-2);
-    aspect-ratio: 1 / 1;
+    gap: var(--space-3);
     min-width: 0;
-    min-height: 0;
-    overflow: hidden;
-    padding: 0.4rem;
-    border-radius: 0.5rem;
+    min-height: 9.5rem;
+    padding: var(--space-4);
+    border-radius: var(--radius-card);
     color: var(--branco);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.odsItem:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
 }
 
 .odsItem--escuro{
@@ -137,16 +145,16 @@ main + footer.rodape{
 
 .odsNumero{
     font-family: var(--font-title);
-    font-size: clamp(1.5rem, 1rem + 1.6vw, 2.25rem);
+    font-size: 2.5rem;
     line-height: 1;
 }
 
 .odsNome{
-    font-size: clamp(0.42rem, 0.2rem + 0.45vw, 0.66rem);
+    font-size: 0.8125rem;
     font-weight: 700;
-    line-height: 1.15;
+    line-height: 1.25;
     text-transform: uppercase;
-    overflow-wrap: anywhere;
+    text-wrap: balance;
 }
 
 /* =========== Reconhecimento =========== */
@@ -306,7 +314,6 @@ main + footer.rodape{
 /* =========== Responsivo =========== */
 @media (max-width: 960px){
     .sobreGrid--video,
-    .odsLayout,
     .reconhecimento,
     .localGrid{
         grid-template-columns: 1fr;
@@ -319,21 +326,28 @@ main + footer.rodape{
     }
 }
 
+@media (max-width: 960px){
+    .odsGrade{
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
 @media (max-width: 640px){
     .odsGrade{
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 0.4rem;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: var(--space-2);
     }
     .odsItem{
-        padding: 0.3rem;
-        border-radius: 0.4rem;
+        min-height: 8rem;
+        padding: var(--space-3);
+        border-radius: 0.75rem;
     }
     .odsNumero{
-        font-size: 1rem;
+        font-size: 1.75rem;
     }
     .odsNome{
-        font-size: 0.5rem;
-        line-height: 1.1;
+        font-size: 0.6875rem;
+        line-height: 1.2;
     }
     .reconhecimentoNumeros{
         grid-template-columns: 1fr;
