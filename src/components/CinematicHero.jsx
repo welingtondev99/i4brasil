@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import Button from './Button'
 import { cinema, momentos } from '../data/cinema'
-import poster from '../images/hero-municipio.webp'
+import poster from '../images/hero-municipio.avif'
+import posterMobile from '../images/hero-municipio-mobile.webp'
 import './cinematicHero.css'
 
 const clamp = (v) => Math.min(1, Math.max(0, v))
@@ -138,7 +139,7 @@ const CinematicHero = () => {
       aria-label="Apresentação da i4 Brasil"
     >
       <div className="cineStage">
-        <div className="cinePoster" style={{ backgroundImage: `url(${poster})` }} />
+        <div className="cinePoster" style={{ '--poster': `url(${poster})`, '--poster-mobile': `url(${posterMobile})` }} />
         {cinema.total > 0 && <canvas ref={canvasRef} className="cineCanvas" aria-hidden="true" />}
         <div className="cineShade" />
 

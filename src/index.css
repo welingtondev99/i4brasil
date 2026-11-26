@@ -100,6 +100,36 @@ body{
   -webkit-font-smoothing: antialiased;
 }
 
+/* Barra de rolagem discreta: fina, trilho transparente (mostra o fundo da página)
+   e polegar roxo que só aparece enquanto se rola (utils/rolagem.js liga
+   data-rolando no <html> e tira ~1s depois de parar). Acompanha o tema da cliente.
+   Firefox e Chrome/Edge/Safari recentes: scrollbar-color/width.
+   Safari antigo e Chrome < 121: ::-webkit-scrollbar. */
+html{
+  scrollbar-width: thin;
+  scrollbar-gutter: stable; /* reserva o espaço da barra: a abertura trava a rolagem e o layout não pula */
+  scrollbar-color: transparent transparent;
+  transition: scrollbar-color .3s ease;
+}
+
+html[data-rolando]{
+  scrollbar-color: var(--roxo-claro) transparent;
+}
+
+@supports not (scrollbar-width: thin){
+  ::-webkit-scrollbar{ width: 0.75rem; height: 0.75rem; }
+  ::-webkit-scrollbar-track{ background: transparent; }
+  ::-webkit-scrollbar-thumb{
+    background-color: transparent;
+    border: 3px solid transparent;
+    background-clip: padding-box; /* respiro nas bordas */
+    border-radius: var(--radius-pill);
+    transition: background-color .3s ease;
+  }
+  html[data-rolando] ::-webkit-scrollbar-thumb,
+  ::-webkit-scrollbar-thumb:hover{ background-color: var(--roxo-claro); }
+}
+
 img{
   max-width: 100%;
   height: auto;

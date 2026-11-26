@@ -2,14 +2,18 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import traco from '../images/logo-i4-traco.webp'
 import tracoMobile from '../images/logo-i4-traco-mobile.webp'
 import cheia from '../images/logo-i4-intro-cheia.webp'
+import fotoCidade from '../images/hero-municipio.avif'
+import fotoCidadeMobile from '../images/hero-municipio-mobile.webp'
 import { publico } from '../utils/publico'
 import './introLoader.css'
 
-// Abertura do site com a logo. Dois estilos:
+// Abertura do site com a logo. Três estilos:
+//  - 'cidade': a foto da cidade aparece dentro das letras da logo, que depois cresce até
+//    ocupar a tela e revela o site (feito em código, usa a mesma foto do hero);
 //  - 'traco': o contorno da logo é revelado em linha fina, a logo se preenche de branco e a
 //    cortina sobe (feito em código, leve e nítido em qualquer tela);
 //  - 'video': animação da equipe de obra montando a logo (public/video/abertura-logo.mp4).
-const TIPO = 'traco'
+const TIPO = 'cidade'
 
 // Quando aparece:
 //  - desenvolvimento: a cada carregamento/recarga da página, para poder revisar;
@@ -19,12 +23,27 @@ const TIPO = 'traco'
 const MOSTRAR_SEMPRE = import.meta.env.DEV
 const CHAVE = 'i4-intro-vista'
 
-const DURACAO_TRACO = 3900 // ms até a cortina começar a subir (estilo 'traco')
+// Planta técnica que se desenha atrás da logo: malha, rotas (adutora, rodovia, ferrovia) e nós.
+const GRADE_X = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100]
+const GRADE_Y = [100, 200, 300, 400, 500, 600]
+// as rotas chegam ao anel em volta da logo, sem cruzar as letras
+const ROTAS = [
+  { pontos: '0,520 220,520 300,430 340,350', atraso: 0.3 },
+  { pontos: '1200,160 960,160 880,250 860,350', atraso: 0.5 },
+  { pontos: '120,0 120,70 600,70 600,90', atraso: 0.7 },
+  { pontos: '1080,700 1080,640 600,640 600,610', atraso: 0.9 },
+]
+const NOS = [[300, 430], [340, 350], [880, 250], [860, 350], [120, 70], [600, 90], [1080, 640], [600, 610]]
+
+const DURACAO_TRACO = 3900 // ms até a saída começar (estilos 'traco' e 'cidade')
 const VIDEO = publico('video/abertura-logo.mp4')
 const POSTER = publico('video/abertura-logo.jpg')
 const FIM_ANTECIPADO = 0.5 // estilo 'video': a cortina começa meio segundo antes do fim
 const TEMPO_PARA_COMECAR = 6000 // estilo 'video': se não começar em 6 s, segue sem a abertura
 const LIMITE_SEGURANCA = 12000 // nunca prende o visitante mais que isso
+
+// Variação da entrada do estilo 'cidade' para comparar: ?entrada=inversa (só em desenvolvimento)
+const ENTRADA_INVERSA = import.meta.env.DEV && new URLSearchParams(window.location.search).get('entrada') === 'inversa'
 
 let jaMostrada = false
 
@@ -57,6 +76,8 @@ const IntroLoader = () => {
     try { sessionStorage.setItem(CHAVE, '1') } catch { /* sem armazenamento */ }
     const html = document.documentElement
     const anterior = html.style.overflow
+    window.scrollTo(0, 0) // a abertura sempre começa no topo (o navegador restaura a rolagem ao recarregar)
+    // o espaço da barra continua reservado por scrollbar-gutter (index.css), então o layout não pula
     html.style.overflow = 'hidden'
     return () => { html.style.overflow = anterior }
   }, [fase])
@@ -68,7 +89,7 @@ const IntroLoader = () => {
     const trava = setTimeout(() => { motivo('limite de segurança'); sair() }, LIMITE_SEGURANCA)
     const timers = [trava]
 
-    if (TIPO === 'traco') {
+    if (TIPO !== 'video') {
       timers.push(setTimeout(sair, DURACAO_TRACO))
     } else {
       // Rede lenta ou travada: se o vídeo nem começou a tocar, pula.
@@ -98,7 +119,7 @@ const IntroLoader = () => {
   // cortina sobe e some depois da transição
   useEffect(() => {
     if (fase !== 'saindo') return
-    const t = setTimeout(() => setFase('fim'), 800)
+    const t = setTimeout(() => setFase('fim'), 900)
     return () => clearTimeout(t)
   }, [fase])
 
@@ -125,8 +146,34 @@ const IntroLoader = () => {
   }
 
   return (
-    <div className={`intro intro--${fase}`} role="region" aria-label="Abertura da i4 Brasil">
-      {TIPO === 'traco' ? (
+    <div className={`intro intro--${fase} intro--${TIPO} ${ENTRADA_INVERSA ? 'intro--inversa' : ''}`} role="region" aria-label="Abertura da i4 Brasil">
+      {TIPO === 'cidade' ? (
+        <div className="introCidade" aria-hidden="true">
+          <img className="introCidadeTraco" src={cheia} alt="" />
+          <div
+            className="introCidadeFoto"
+            style={{ '--foto': `url(${fotoCidade})`, '--foto-mobile': `url(${fotoCidadeMobile})`, '--logo': `url(${cheia})` }}
+          />
+        </div>
+      ) : TIPO === 'traco' ? (
+        <>
+        <svg className="introPlanta" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <g className="introGrade">
+            {GRADE_X.map((x, i) => (
+              <line key={`x${x}`} x1={x} y1="0" x2={x} y2="700" pathLength="1" style={{ '--d': `${i * 0.05}s` }} />
+            ))}
+            {GRADE_Y.map((y, i) => (
+              <line key={`y${y}`} x1="0" y1={y} x2="1200" y2={y} pathLength="1" style={{ '--d': `${i * 0.07}s` }} />
+            ))}
+          </g>
+          <circle className="introAnel" cx="600" cy="350" r="260" pathLength="1" />
+          {ROTAS.map((r, i) => (
+            <polyline key={i} className="introRota" points={r.pontos} pathLength="1" style={{ '--d': `${r.atraso}s` }} />
+          ))}
+          {NOS.map(([x, y], i) => (
+            <circle key={i} className="introNo" cx={x} cy={y} r="5" style={{ '--d': `${0.9 + i * 0.12}s` }} />
+          ))}
+        </svg>
         <div className="introMarca" aria-hidden="true">
           <picture>
             <source media="(max-width: 640px)" srcSet={tracoMobile} />
@@ -134,6 +181,7 @@ const IntroLoader = () => {
           </picture>
           <img className="introCheia" src={cheia} alt="" />
         </div>
+        </>
       ) : (
         <video
           ref={videoRef}
@@ -151,7 +199,7 @@ const IntroLoader = () => {
           onError={(e) => { motivo('erro no vídeo', e.currentTarget.error?.message); setFase('fim') }}
         />
       )}
-      <button type="button" className="introPular" onClick={sair} autoFocus>
+      <button type="button" className="introPular" onClick={sair}>
         Pular abertura
       </button>
     </div>

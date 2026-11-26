@@ -25,6 +25,7 @@
 
 /* Sem vídeo: foto com zoom lento acompanhando a rolagem */
 .cinePoster{
+    background-image: var(--poster);
     background-size: cover;
     background-position: center;
     transform: scale(calc(1 + var(--p) * 0.18));
@@ -208,10 +209,11 @@ section[id]:not(#inicio){
     display: none;
 }
 
-/* Tela em pé: o recorte ao centro perderia a cidade, que na foto está à direita */
+/* Tela em pé: usa a foto vertical, com a cidade na metade de baixo e o céu em cima para o texto */
 @media (max-aspect-ratio: 1/1){
     .cinePoster{
-        background-position: 68% 50%;
+        background-image: var(--poster-mobile);
+        background-position: 50% 70%;
     }
 }
 
