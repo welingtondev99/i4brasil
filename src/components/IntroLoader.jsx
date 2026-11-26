@@ -7,11 +7,12 @@ import fotoCidadeMobile from '../images/hero-municipio-mobile.webp'
 import { lerAbertura } from '../utils/abertura'
 import './introLoader.css'
 
-// Abertura do site com a logo. Dois estilos:
+// Abertura do site com a logo. Três estilos:
 //  - 'cidade': a foto da cidade aparece dentro das letras da logo, que depois sobe e some,
 //    revelando o site (feito em código, usa a mesma foto do hero);
 //  - 'traco': o contorno da logo é revelado em linha fina, a logo se preenche de branco e a
-//    cortina sobe (feito em código, leve e nítido em qualquer tela).
+//    cortina sobe (feito em código, leve e nítido em qualquer tela);
+//  - 'planta': o mesmo traço, com uma planta técnica (malha, rotas e nós) se desenhando atrás.
 // A escolha vem do botão "Abertura" (utils/abertura.js); o padrão é 'cidade'.
 const TIPO = lerAbertura()
 
@@ -105,6 +106,7 @@ const IntroLoader = () => {
         </div>
       ) : (
         <>
+        {TIPO === 'planta' && (
         <svg className="introPlanta" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
           <g className="introGrade">
             {GRADE_X.map((x, i) => (
@@ -122,6 +124,7 @@ const IntroLoader = () => {
             <circle key={i} className="introNo" cx={x} cy={y} r="5" style={{ '--d': `${0.9 + i * 0.12}s` }} />
           ))}
         </svg>
+        )}
         <div className="introMarca" aria-hidden="true">
           <picture>
             <source media="(max-width: 640px)" srcSet={tracoMobile} />

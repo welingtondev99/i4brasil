@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './temaToggle.css'
 import { ABERTURAS, lerAbertura, salvarAbertura } from '../utils/abertura'
 
-// Botão para escolher qual abertura do site aparece (cidade, traço ou nenhuma).
+// Botão para escolher qual abertura do site aparece (cidade, traço, traço com planta ou nenhuma).
 // A cada clique troca para a próxima e recarrega, para a abertura rodar de novo.
 const AberturaToggle = () => {
   const [atual] = useState(lerAbertura)
