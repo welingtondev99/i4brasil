@@ -145,12 +145,13 @@ const IntroLoader = () => {
   return (
     <div className={`intro intro--${fase} intro--${TIPO}`} role="region" aria-label="Abertura da i4 Brasil">
       {TIPO === 'cidade' ? (
-        <div className="introCidade" aria-hidden="true">
-          <img className="introCidadeTraco" src={cheia} alt="" />
-          <div
-            className="introCidadeFoto"
-            style={{ '--foto': `url(${fotoCidade})`, '--foto-mobile': `url(${fotoCidadeMobile})`, '--logo': `url(${cheia})` }}
-          />
+        <div
+          className="introCidade"
+          aria-hidden="true"
+          style={{ '--foto': `url(${fotoCidade})`, '--foto-mobile': `url(${fotoCidadeMobile})`, '--logo': `url(${cheia})` }}
+        >
+          <div className="introCidadeTraco" />
+          <div className="introCidadeFoto" />
         </div>
       ) : TIPO === 'traco' ? (
         <>
