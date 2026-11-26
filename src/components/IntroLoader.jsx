@@ -42,9 +42,6 @@ const FIM_ANTECIPADO = 0.5 // estilo 'video': a cortina começa meio segundo ant
 const TEMPO_PARA_COMECAR = 6000 // estilo 'video': se não começar em 6 s, segue sem a abertura
 const LIMITE_SEGURANCA = 12000 // nunca prende o visitante mais que isso
 
-// Variação da entrada do estilo 'cidade' para comparar: ?entrada=inversa (só em desenvolvimento)
-const ENTRADA_INVERSA = import.meta.env.DEV && new URLSearchParams(window.location.search).get('entrada') === 'inversa'
-
 let jaMostrada = false
 
 // em desenvolvimento, explica no console por que a abertura terminou
@@ -146,7 +143,7 @@ const IntroLoader = () => {
   }
 
   return (
-    <div className={`intro intro--${fase} intro--${TIPO} ${ENTRADA_INVERSA ? 'intro--inversa' : ''}`} role="region" aria-label="Abertura da i4 Brasil">
+    <div className={`intro intro--${fase} intro--${TIPO}`} role="region" aria-label="Abertura da i4 Brasil">
       {TIPO === 'cidade' ? (
         <div className="introCidade" aria-hidden="true">
           <img className="introCidadeTraco" src={cheia} alt="" />

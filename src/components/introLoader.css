@@ -51,29 +51,29 @@
     animation: introFotoEntra 2.4s cubic-bezier(.3, 0, .3, 1) .5s forwards;
 }
 
-/* versão invertida (?entrada=inversa): o fundo começa transparente, mostrando o site,
-   e vira branco; a foto continua aparecendo só dentro das letras */
-.intro--inversa{
+/* estilo 'cidade': o fundo começa transparente, mostrando o site, e vira branco;
+   a foto aparece só dentro das letras */
+.intro--cidade{
     background-color: transparent;
     animation: introFundoBranco 1.2s ease .1s forwards;
 }
 
-.intro--inversa .introCidadeTraco{
+.intro--cidade .introCidadeTraco{
     filter: brightness(0);
     opacity: 0.08;
 }
 
-.intro--inversa .introPular{
+.intro--cidade .introPular{
     border-color: rgba(11, 11, 15, 0.35);
     color: var(--preto);
 }
 
-.intro--inversa .introPular:hover{
+.intro--cidade .introPular:hover{
     background-color: var(--preto);
     color: var(--branco);
 }
 
-.intro--inversa .introPular:focus-visible{
+.intro--cidade .introPular:focus-visible{
     outline-color: var(--roxo-primario);
 }
 
