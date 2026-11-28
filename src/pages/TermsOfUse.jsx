@@ -1,5 +1,6 @@
 
 import DefaultTop from "../components/DefaultTop"
+import { useSemIndexacao } from "../utils/useSemIndexacao"
 import Footer from "../components/Footer"
 import '../components/button.css'
 import '../App.css'
@@ -9,6 +10,7 @@ import "../components/titleSection.css"
 
 
 const TermsOfUse = () => {
+  useSemIndexacao()
   return (
     <>
       <section id="termsOfUse" className="containerPages">

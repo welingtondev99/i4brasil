@@ -1,10 +1,12 @@
 import DefaultTop from '../components/DefaultTop'
+import { useSemIndexacao } from '../utils/useSemIndexacao'
 import Footer from '../components/Footer'
 import "../components/titleSection.css"
 
 
 
 const PrivacyPolicy = () => {
+  useSemIndexacao()
   return (
     <>
         <section className="containerPages">
@@ -17,7 +19,7 @@ const PrivacyPolicy = () => {
                 <h4 >1. Quem é o controlador dos dados</h4>
                 <p className="paragrafhTerms">O i4 Brasil — Instituto de Infraestrutura, Inteligência e Inovação é o controlador dos dados pessoais coletados neste site. Contato do encarregado: contato@i4brasil.org.</p>
                 <h4>2. Quais dados coletamos</h4>
-                <p className="paragrafhTerms">Coletamos apenas os dados que você informa voluntariamente no formulário de contato: nome, e-mail, telefone (opcional), organização e a mensagem enviada. Não coletamos dados sensíveis.</p>
+                <p className="paragrafhTerms">Coletamos apenas os dados que você informa voluntariamente no formulário de contato: nome, e-mail, assunto e a mensagem enviada. Não coletamos dados sensíveis.</p>
                 <h4>3. Para que usamos os dados</h4>
                 <p className="paragrafhTerms">Os dados são usados exclusivamente para responder à sua solicitação, dar seguimento a um eventual contato institucional e manter registro do atendimento. Não vendemos nem comercializamos dados pessoais.</p>
                 <h4>4. Base legal</h4>

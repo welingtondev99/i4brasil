@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# As páginas de Termos de uso e Política de privacidade usam "noindex".
+# Não bloqueie aqui: o buscador precisa abrir a página para ler esse aviso.
+
+Sitemap: https://welingtondev99.github.io/i4brasil/sitemap.xml
