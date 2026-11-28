@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex" />
+    <title>i4 Brasil</title>
+    <script>
+      // GitHub Pages não conhece as rotas internas do site. Esta página manda a
+      // pessoa para a home guardando o caminho, e a home reabre a página certa.
+      var base = '/i4brasil/';
+      var caminho = location.pathname.slice(base.length);
+      location.replace(base + '?/' + caminho + location.search.replace('?', '&') + location.hash);
+    </script>
+  </head>
+  <body></body>
+</html>
